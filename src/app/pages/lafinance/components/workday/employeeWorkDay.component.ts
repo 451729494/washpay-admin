@@ -19,7 +19,7 @@ import {DataImportComponent} from "../../../custom/dataimport-modal/dataimport-m
 
 @Component({
   selector: 'la-employee-workday',
-  templateUrl:'./employeeWorkday.html'
+  templateUrl:'./employeeWorkDay.html'
 })
 export class EmployeeWorkDay implements OnInit {
 
