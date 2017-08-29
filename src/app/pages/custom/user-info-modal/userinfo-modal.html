@@ -1,0 +1,134 @@
+
+    <div class="col-lg-12 col-sm-12 col-12" *ngIf="user">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2  col-3 no-padding">用户ID</label>
+            <div class="input-group col-sm-10  col-9 ">
+              {{user.username}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2 col-3 no-padding">email</label>
+            <div class="input-group col-sm-10 col-9">
+              {{user.mobile}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2  col-3 no-padding">手机号码</label>
+            <div class="input-group col-sm-10  col-9 ">
+              {{user.mobile}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2 col-3 no-padding">是否实名认证</label>
+            <div class="input-group col-sm-10 col-9" *ngIf="user.realNameStatus">
+              已实名认证
+            </div>
+            <div class="input-group col-sm-10 col-9" *ngIf="!user.realNameStatus">
+              未实名认证
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2 col-3 no-padding">支付方式</label>
+            <div class="input-group col-sm-10 col-9" *ngIf="user.bindPayStatus">
+              已绑定
+            </div>
+            <div class="input-group col-sm-10 col-9" *ngIf="!user.bindPayStatus">
+              未绑定
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-lg-12 col-sm-12 col-12" *ngIf="userInfo">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2  col-3 no-padding">用户ID</label>
+            <div class="input-group col-sm-10  col-9 ">
+              {{user.username}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2 col-3 no-padding">email</label>
+            <div class="input-group col-sm-10 col-9">
+              {{user.mobile}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2  col-3 no-padding">手机号码</label>
+            <div class="input-group col-sm-10  col-9 ">
+              {{user.mobile}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2 col-3 no-padding">是否实名认证</label>
+            <div class="input-group col-sm-10 col-9" *ngIf="user.realNameStatus">
+              已实名认证
+            </div>
+            <div class="input-group col-sm-10 col-9" *ngIf="!user.realNameStatus">
+              未实名认证
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2 col-3 no-padding">支付方式</label>
+            <div class="input-group col-sm-10 col-9" *ngIf="user.bindPayStatus">
+              已绑定
+            </div>
+            <div class="input-group col-sm-10 col-9" *ngIf="!user.bindPayStatus">
+              未绑定
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 col-sm-12 col-12" *ngIf="userAccount">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group row">
+              <label class="col-sm-2  col-3 no-padding">绑定方式</label>
+              <div class="input-group col-sm-10  col-9 ">
+                   {{userAccount.withdrawTypeStr}}
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group row">
+              <label class="col-sm-2 col-3 no-padding">账号</label>
+              <div class="input-group col-sm-10 col-9">
+                {{userAccount.withdrawId}}
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>
+    </div>

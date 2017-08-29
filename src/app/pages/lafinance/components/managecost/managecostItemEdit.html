@@ -1,0 +1,86 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  >
+        <form [formGroup]="editForm" (ngSubmit)="toAdd(editForm.value)" class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>原始单据编号</label>
+                <input  type="text"  class="form-control" [formControl]="code" id="idCode" >
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="col-sm-2 col-3">单据日期</label>
+                <div class="input-group col-sm-10 col-9">
+                  <input class="form-control" placeholder="yyyy-mm-dd"
+                         name="dpEnd" [ngModelOptions]="{standalone: true}" [(ngModel)]="createdDate" ngbDatepicker #d2="ngbDatepicker">
+                  <div class="input-group-addon" (click)="d2.toggle()" >
+                    <img src="../../../../../assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>客户</label>
+                <select [formControl]="corpId" id="idCorpId"  class="form-control" >
+                  <option value="">请选择</option>
+                  <option *ngFor="let item of listCorpCustomer" [value]="item.id">{{item.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>费用科目</label>
+                <select [formControl]="accountItemId" id="idAccountItemId"  class="form-control" >
+                  <option value="">请选择</option>
+                  <option *ngFor="let item of listAccountItem" [value]="item.id">{{item.code}}-{{item.name}}
+                  </option>
+                </select>
+              </div>
+              </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idSalaryHour">发生额度</label>
+                <input  type="text"  class="form-control" [formControl]="amount" id="idSalaryHour" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="idComment">备注</label>
+                <input  type="text"  class="form-control" [formControl]="description" id="idComment" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>状态</label>
+                <select [formControl]="status" id="idStatus" class="form-control" >
+                  <option value="1">已确定</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="offset-sm-5">
+              <button type="button" [disabled]="!editForm.valid" (click)="toAdd(editForm.value)"  class="btn btn-warning" >保存</button>
+              <button type="button" (click)="toBack()"  class="btn btn-warning" >返回</button>
+            </div>
+          </div>
+        </form>
+      </ba-card>
+    </div>
+  </div>
+  </div>

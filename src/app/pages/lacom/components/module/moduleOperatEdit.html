@@ -1,0 +1,60 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card >
+        <form [formGroup]="operatForm" class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idmoduleId" class=" control-label">模块</label>
+                <div class="input-group">
+                  <select [formControl]="moduleId" class="form-control" id="idmoduleId" readonly>
+                    <option value="">请选择</option>
+                    <option *ngFor="let item of moduleList" [value]="item.id">{{item.name}}-{{item.code}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group" >
+                <label>编号</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="code" class="form-control" id="idCode"
+                         placeholder="code">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>中文名</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="name" class="form-control" id="idName" placeholder="中文名字">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>序号</label>
+                <div class="input-group">
+                  <input type="tel" [formControl]="menuOrder" class="form-control" id="idMenuOrder" placeholder="1">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <p>{{msg}}</p>
+          </div>
+          <div class="row">
+            <div class="offset-5 col-sm-6">
+              <button type="button" [disabled]="!operatForm.valid" (click)="onSubmit(operatForm.value)" class="btn btn-warning">保存</button>
+              <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+            </div>
+          </div>
+        </form>
+      </ba-card>
+    </div>
+  </div>
+</div>

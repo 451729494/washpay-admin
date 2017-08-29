@@ -1,0 +1,75 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card >
+        <div class="row" *ngIf="checkType">
+          <div class="col-sm-6 form-group">
+            业务:<b>{{checkType.entityName}}</b>
+          </div>
+          <div class="col-sm-6 form-group">
+            业务名称:<b>{{checkType.name}}</b>
+          </div>
+          <div class="col-sm-6 form-group">
+            编码前缀:<b>{{checkType.codePre}}</b>
+          </div>
+          <div class="col-sm-6 form-group">
+            类别:<b>{{checkType.invoiceTypeStr}}</b>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="offset-5 col-sm-6">
+              <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+           </div>
+        </div>
+      </ba-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card >
+
+        <div class="row form-group" >
+          <div class="col-sm-6">
+            <label for="idCategory">选择角色</label>
+            <select  id="idCategory" [(ngModel)]="curManageRole" class="form-control" >
+              <option value="">请选择</option>
+              <option *ngFor="let item of manageRoleList" [value]="item.id">{{item.nameCn}}
+              </option>
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <button type="button" (click)="toAddRole()" class="btn btn-warning">增加流程角色</button>
+          </div>
+        </div>
+
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th>id</th>
+            <th>角色编号</th>
+            <th>角色名</th>
+            <th>序号</th>
+            <th>操作</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of manageRoleFlowList">
+            <td>{{item.id}}</td>
+            <td>{{item.manageRole.name}}</td>
+            <td>{{item.manageRole.nameCn}}</td>
+            <td>
+              {{item.menuOrder}}
+            </td>
+            <td>
+              <button type="button" (click)="toDelRole(item.id)" class="btn btn-warning">删除</button>
+            </td>
+          </tr>
+          </tbody>
+          </table>
+      </ba-card>
+    </div>
+   </div>
+</div>
+

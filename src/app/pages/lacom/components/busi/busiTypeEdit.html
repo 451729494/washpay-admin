@@ -1,0 +1,58 @@
+<div class="widgets">
+  <div class="col-lg-12 col-sm-12 col-12">
+    <ba-card >
+      <form [formGroup]="categoryForm" (ngSubmit)="onSubmit(categoryForm.value)" class="form-horizontal">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-grou">
+              <label for="idParentId" class=" control-label">上级</label>
+              <div class="input-group">
+                <select [formControl]="parentId" class="form-control" id="idParentId">
+                  <option value="">请选择</option>
+                  <option *ngFor="let item of categoryList" [value]="item.id">{{item.name}}-{{item.code}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idCode" class="control-label">编码</label>
+              <div class="input-group">
+                <input [formControl]="code" type="text" class="form-control" id="idCode" placeholder="code">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idName" class=" control-label">名称</label>
+              <div class="input-group">
+                <input [formControl]="name" type="text" class="form-control" id="idName">
+              </div>
+            </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idMenuOrder" class="control-label">排序号</label>
+                <div class="input-group">
+                  <input [formControl]="menuOrder" type="text" class="form-control" id="idMenuOrder">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <p>{{msg}}</p>
+          </div>
+            <div class="form-group">
+              <div class="offset-sm-5">
+                <button type="button" (click)="onSubmit(categoryForm.value)" class="btn btn-default btn-auth">保存</button>
+                <button type="button" (click)="toBack()" class="btn btn-default btn-auth">返回</button>
+              </div>
+            </div>
+      </form>
+    </ba-card>
+  </div>
+</div>

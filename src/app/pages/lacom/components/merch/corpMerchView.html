@@ -1,0 +1,134 @@
+<div class="widgets">
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12" *ngIf="corp">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+
+            企业名:<b class="offset-1">{{corp.name}}</b>
+          </div>
+
+          <div class="">
+            <div class="form-group">
+              <!--<label for="idTag">机构代码</label>-->
+              机构代码 <b class="offset-1"> {{corp.code}}</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ngb-tabset>
+        <ngb-tab title="商户资料">
+          <ng-template ngbTabContent class="row">
+            <div class="" *ngIf="corp">
+              <ba-card >
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      分类:<b>{{corp.corpType.name}}</b>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      企业名: <b>{{corp.name}}</b>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      机构代码:  <b>{{corp.code}}</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      注册日期: <b>{{corp.registedDate}}</b>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 ">
+                    <div class="form-group">
+                      图片: <b class="text-wrap">{{corp.imageUrl}}</b>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      公司电话:   <b>{{corp.tel}}</b>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+
+                      公司邮箱:  <b>{{corp.email}}</b>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+
+                      城市: <b>{{corp.address.city}}</b>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      地址:<b> {{corp.address.street}}</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-10">
+                    <div class="form-group">
+                      描述 <b> {{corp.description}}</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="offset-5 col-sm-6">
+                    <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12 col-sm-12 col-12">
+                    <p class="e2e-inner-html-bound" [innerHTML]="corp.content"></p>
+                  </div>
+                </div>
+
+              </ba-card>
+            </div>
+          </ng-template>
+        </ngb-tab>
+
+        <ngb-tab title="商户管理员">
+          <ng-template ngbTabContent>
+            <ba-card >
+              <div class="col-lg-12 col-sm-12 col-12" *ngIf="corp">
+                <la-corp-manage-list [dispatchedCorpId]="curId"></la-corp-manage-list>
+              </div>
+            </ba-card>
+          </ng-template>
+        </ngb-tab>
+
+        <ngb-tab title="商户配置">
+          <ng-template ngbTabContent>
+
+            <ba-card >
+              <div class="col-lg-12 col-sm-12 col-12" *ngIf="corp">
+                <la-sys-third-List [dispatchedCorpId]="curId"></la-sys-third-List>
+              </div>
+            </ba-card>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
+</div>

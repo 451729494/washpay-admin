@@ -1,0 +1,26 @@
+
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">{{modalHeader}}</h4>
+    <button class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-4">
+        <label class="upload-button">
+          <input type="file" ngFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput">
+        </label>
+      </div>
+      <div class="col-4" *ngIf="files.length">
+        <button type="button" class="start-upload-btn" (click)="startUpload()">
+          上传
+        </button>
+      </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary confirm-btn" (click)="closeModal()">上传完成关闭</button>
+  </div>
+</div>

@@ -1,0 +1,161 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card >
+        <form [formGroup]="thirdForm" class="form-horizontal">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="idCode" class=" control-label">系统代码</label>
+                    <div class="input-group">
+                      <select [formControl]="code" class="form-control" id="idCode">
+                        <option value="">请选择</option>
+                        <option value="webchat">微信公众号</option>
+                        <option value="webchatPay">微信支付</option>
+                        <option value="alipay">支付宝</option>
+                        <option value="jpush">消息推送</option>
+                        <option value="sms">短信</option>
+                        <option value="kdxunfei">科大讯飞</option>
+                        <option value="gdmap">高德地图</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>中文名</label>
+                    <div class="input-group">
+                      <input type="text" [formControl]="name" class="form-control" id="idName" placeholder="中文名字">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>icon</label>
+                    <div class="input-group">
+                      <input type="text" [formControl]="icon" class="form-control" id="idIcon" placeholder="">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label >AppId</label>
+                    <div class="input-group">
+                      <input type="text" [formControl]="appId" class="form-control" id="idAppId" placeholder="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label >商户ID</label>
+                    <div class="input-group">
+                      <input type="text" [formControl]="merchId" class="form-control" id="idMerchId" placeholder="">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>服务URL</label>
+                    <div class="input-group">
+                      <input type="text" [formControl]="hostUrl" class="form-control" id="idHostUrl" placeholder="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>回调URL</label>
+                    <div class="input-group">
+                      <input type="text" [formControl]="callbackUrl" class="form-control" id="idCallbackUrl" placeholder="">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>协议</label>
+                    <div class="input-group">
+                      <input type="text" [formControl]="protocal" class="form-control" id="idprotocal" placeholder="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>端口号</label>
+                    <div class="input-group ">
+                      <input type="text" [formControl]="port" class="form-control" id="idport" placeholder="">
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>secret</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="secret" class="form-control" id="idsecret" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label >密码</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="passwordStr" class="form-control" id="idpasswordStr" placeholder="">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>SignType</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="signType" class="form-control" id="idsignType" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-6">
+              <div class="form-group">
+                <label>公钥</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="publicKey" class="form-control" id="idpublicKey" placeholder="">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label >SignType</label>
+                <div class="input-grou">
+                  <input type="text" [formControl]="privateKey" class="form-control" id="idprivateKey" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <p>{{msg}}</p>
+          </div>
+          <div class="row">
+            <div class="offset-5">
+              <button type="button" [disabled]="!thirdForm.valid" (click)="onSubmit(thirdForm.value)" class="btn btn-warning">保存</button>
+              <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+            </div>
+          </div>
+        </form>
+      </ba-card>
+    </div>
+  </div>
+</div>

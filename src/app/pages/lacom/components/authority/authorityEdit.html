@@ -1,0 +1,38 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card >
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)" class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group" [ngClass]="{'has-error': (!name.valid && name.touched), 'has-success': (name.valid && name.touched)}">
+                <label>角色编号</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="name" class="form-control" id="idName"
+                         placeholder="User Name">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label>分类</label>
+              <div class="form-group" [ngClass]="{'has-error': (!nameCn.valid && nameCn.touched), 'has-success': (nameCn.valid && nameCn.touched)}">
+                <div class="input-group">
+                  <input type="tel" [formControl]="nameCn" class="form-control" id="idNameCn" placeholder="中文名字">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <p>{{msg}}</p>
+          </div>
+          <div class="row">
+            <div class="offset-5">
+              <button type="button" [disabled]="!searchForm.valid" (click)="onSubmit(searchForm.value)" class="btn btn-warning">保存</button>
+              <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+            </div>
+          </div>
+        </form>
+      </ba-card>
+    </div>
+  </div>
+</div>

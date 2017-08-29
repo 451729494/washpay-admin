@@ -1,0 +1,113 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+    <ba-card   *ngIf="recruit">
+
+        <div class="row">
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label >所属分类</label>
+              {{recruit.busiType.name}}
+            </div>
+          </div>
+          <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputUsername">名称</label>
+            {{recruit.name}}
+          </div>
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label >标签</label>
+              {{recruit.tag}}
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label >起薪</label>
+              {{recruit.salaryStart}}
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>至</label>
+              {{recruit.salaryEnd}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label >城市</label>
+              {{recruit.city}}
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label >工作地址</label>
+              {{recruit.address}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label>招聘人数</label>
+              {{recruit.count}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="idDescription">摘录</label>
+              {{recruit.description}}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-6">
+
+              <label class="form-group">发布时间</label>
+               <div class="input-group">
+                 {{recruit.createdDate}}
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idStatusHot">是否置顶</label>
+               <div *ngIf="recruit.statusHot"> 置顶</div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idStatus">状态</label>
+              {{recruit.statusStr}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-sm-6 col-sm-6">
+            <button type="button" (click)="toBack()"  class="btn btn-warning" >返回</button>
+          </div>
+        </div>
+      </ba-card>
+      </div>
+    </div>
+
+  <div class="row">
+
+  </div>
+</div>

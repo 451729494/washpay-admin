@@ -1,0 +1,141 @@
+
+    <div class="col-lg-12 col-sm-12 col-12" *ngIf="userResume">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2  col-3 no-padding">期望工作城市</label>
+            <div class="input-group col-sm-10  col-9 ">
+              {{userResume.resumeCity}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2 col-3 no-padding">期望职务</label>
+            <div class="input-group col-sm-10 col-9">
+              {{userResume.position}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2  col-3 no-padding">期望薪水:</label>
+            <div class="input-group col-sm-10  col-9 ">
+              {{userResume.salaryStart}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2 col-3 no-padding">至</label>
+            <div class="input-group col-sm-10 col-9" *ngIf="user.realNameStatus">
+              {{userResume.salaryEnd}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2  col-3 no-padding">工作类型</label>
+            <div class="input-group col-sm-10  col-9 ">
+              {{userResume.workTypeStr}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2 col-3 no-padding">薪资类别</label>
+            <div class="input-group col-sm-10 col-9" *ngIf="user.realNameStatus">
+              {{userResume.salaryTypeStr}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group row">
+            <label class="col-sm-2  col-3 no-padding">到岗时间</label>
+            <div class="input-group col-sm-10  col-9 ">
+              {{userResume.dutyTimeTypeStr}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group row">
+            <label class="col-sm-2  col-3 no-padding">自我评价</label>
+            <div class="input-group col-sm-10  col-9 ">
+              {{userResume.selfAppraisal}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 col-12">
+        <ngx-datatable
+          class="material"
+          [columnMode]="'force'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="'auto'"
+          [rows]="rows"
+          [externalPaging]="true"
+          [count]="pageNav.totalElements"
+          [offset]="pageNav.page"
+          [limit]="pageNav.itemsPerPage"
+          (page)='setPage($event)'
+          [scrollbarH]="true">
+          <ngx-datatable-column
+            name="id" [width]="30" prop="id">
+          </ngx-datatable-column>
+          <ngx-datatable-column
+            name="类别"
+            [width]="300"
+            prop="TrackTypeStr">
+          </ngx-datatable-column>
+          <ngx-datatable-column
+            name="开始时间"
+            [width]="200"
+            prop="startDate">
+          </ngx-datatable-column>
+          <ngx-datatable-column
+            name="结束时间"
+            [width]="200"
+            prop="endDate">
+          </ngx-datatable-column>
+          <ngx-datatable-column
+            name="单位"
+            [width]="100"
+            prop="corpName">
+          </ngx-datatable-column>
+          <ngx-datatable-column
+            name="职务"
+            [width]="200"
+            prop="position">
+          </ngx-datatable-column>
+          <ngx-datatable-column
+            name="证书"
+            [width]="100"
+            prop="certificate">
+          </ngx-datatable-column>
+          <ngx-datatable-column
+            name="薪水"
+            [width]="100"
+            prop="salary">
+          </ngx-datatable-column>
+          <ngx-datatable-column
+            name="离职原因"
+            [width]="300"
+            prop="reason">
+          </ngx-datatable-column>
+
+        </ngx-datatable>
+      </div>
+    </div>

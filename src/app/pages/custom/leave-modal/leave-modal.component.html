@@ -1,0 +1,41 @@
+
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">{{modalHeader}}</h4>
+    <button class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <form [formGroup]="applyForm" (ngSubmit)="toSave(applyForm.value)" class="form-horizontal">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group row">
+              <label  class="col-sm-2 col-3 control-label">离职日期</label>
+              <div class="input-group col-sm-10  col-9">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="dpStartDate" [ngModelOptions]="{standalone: true}" [(ngModel)]="leavedDate" ngbDatepicker #d1="ngbDatepicker">
+                <div class="input-group-addon" (click)="d1.toggle()" >
+                  <img src="../../../../../assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group row">
+              <label class="col-sm-2 col-3 control-label" for="idComment">离职原因</label>
+              <div class="input-group col-sm-10  col-9">
+               <input  type="text"  class="form-control" [formControl]="leavedReason" id="idComment" >
+               </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary confirm-btn" [disabled]="!applyForm.valid" (click)="toSave(applyForm.value)">Save changes</button>
+  </div>
+</div>

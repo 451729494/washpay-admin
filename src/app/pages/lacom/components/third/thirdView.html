@@ -1,0 +1,130 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  *ngIf="sysThird">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label></label>
+              <div class="input-group">
+                系统代码：<b class="offset-1">{{sysThird.code}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group">
+                中文名:<b class="offset-1">{{sysThird.name}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group">
+                icon:<b class="offset-1"> {{sysThird.icon}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                AppId:<b class="offset-1">{{sysThird.appId}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                商户ID:<b class="offset-1">{{sysThird.merchId}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+                <p>服务URL</p>
+                <p class="text-wrap">
+                  {{sysThird.hostUrl}}
+                </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+                <p>回调URL</p>
+                <p class="text-wrap">{{sysThird.callbackUrl}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                协议:<b>{{sysThird.protocal}}</b>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group">
+                端口号:<b>{{sysThird.port}}</b>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group ">
+              <div class="input-group">
+                secret:<b>{{sysThird.secret}}</b>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group">
+                密码:<b>{{sysThird.password}}</b>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group">
+                SignType:<b>{{sysThird.signType}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p>公钥</p>
+            <p class="text-wrap">{{sysThird.publicKey}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p>私钥</p>
+            <p class="text-wrap">{{sysThird.privateKey}}</p>
+          </div>
+
+
+        </div>
+
+          <div class="row">
+            <div class="offset-5">
+              <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+            </div>
+          </div>
+
+      </ba-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ngx-datatable
+        class="material"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [rows]="rows"
+        [externalPaging]="true"
+        [count]="pageNav.totalElements"
+        [offset]="pageNav.page"
+        [limit]="pageNav.itemsPerPage"
+        (page)='setPage($event)'
+        [scrollbarH]="true">
+        <ngx-datatable-column
+          name="id" [width]="30" prop="id">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="编号"
+          [width]="300"
+          prop="invoiceCode">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="单据类型"
+          [width]="200"
+          prop="invoiceTypeName">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="用户手机号码"
+          [width]="200"
+          prop="user.mobile">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="用户名"
+          [width]="100"
+          prop="user.realName">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="金额"
+          [width]="200"
+          prop="amount">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="创建日期"
+          [width]="100"
+          prop="checkUser.createdDate">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="审核状态"
+          [width]="100"
+          prop="checkUser.approvedStr">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="状态"
+          [width]="200"
+          prop="statusStr">
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+  </div>
+
+

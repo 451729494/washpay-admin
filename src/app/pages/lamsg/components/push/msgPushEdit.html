@@ -1,0 +1,109 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  >
+        <form [formGroup]="editForm" (ngSubmit)="toSave(editForm.value)" class="form-horizontal">
+          <div class="row">
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputUsername">推送标题</label>
+                <input  type="text" [formControl]="name" class="form-control" id="idname">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idpushType">推送类型</label>
+                <select [formControl]="pushType" id="idpushType" class="form-control" >
+                  <option value="">请选择</option>
+                  <option value="1">城市</option>
+                  <option value="2">限定用人单位</option>
+                  <option value="3">所有派遣人员</option>
+                  <option value="4">合作包工头人员</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idpushObject">推送范围</label>
+                <input [formControl]="pushObject" id="idpushObject" class="form-control" >
+              </div>
+            </div>
+          </div>
+         <div class="row form-group">
+           <div class="col-6">
+             <div>
+               <label for="idDescription">推送内容</label>
+                <textarea [formControl]="description" id="iddescription" class="form-control">
+                </textarea>
+             </div>
+           </div>
+           <div class="col-sm-6">
+             <div class="form-group">
+               <label>推送时间</label>
+               <div class="input-group">
+                 <input class="form-control" placeholder="yyyy-mm-dd" name="dpStart" [ngModelOptions]="{standalone: true}" [(ngModel)]="pushDate" ngbDatepicker #d1="ngbDatepicker">
+                 <div class="input-group-addon" (click)="d1.toggle()" >
+                   <img src="../../../../../assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+
+        <div class="row">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-sm-4">
+                <label for="changeHourStep">Hour Step</label>
+                <input id="changeHourStep" type="number" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}" [(ngModel)]="hourStep" />
+              </div>
+              <div class="col-sm-4">
+                <label for="changeMinuteStep">Minute Step</label>
+                <input id="changeMinuteStep" type="number" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}" [(ngModel)]="minuteStep" />
+              </div>
+              <div class="col-sm-4">
+                <label for="changeSecondStep">Second Step</label>
+                <input id="changeSecondStep" type="number" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}" [(ngModel)]="secondStep" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <label>推送渠道</label>
+            <div class="">
+              <div class="form-group row">
+                  <div class="input-group col-sm-3 form-group">
+                    <input type="checkbox"  [formControl]="pushChannel1" value="1"> App推送消息
+                  </div>
+                  <div class="input-group col-sm-3 form-group">
+                    <input type="checkbox"  [formControl]="pushChannel2" value="1"> 短信
+                  </div>
+                  <div class="input-group col-sm-3 form-group">
+                    <input type="checkbox"  [formControl]="pushChannel3" value="1"> App内部消息
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-sm-5">
+            <button type="button" [disabled]="!editForm.valid" (click)="toSave(editForm.value)"  class="btn btn-warning" >保存</button>
+            <button type="button" (click)="toBack()"  class="btn btn-warning" >返回</button>
+          </div>
+        </div>
+        </form>
+      </ba-card>
+    </div>
+  </div>
+</div>

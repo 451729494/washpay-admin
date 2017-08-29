@@ -1,0 +1,74 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  >
+        <form [formGroup]="accountpositionEditForm" (ngSubmit)="toAdd(accountpositionEditForm.value)" class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idCode">编码</label>
+                <input type="text"  class="form-control" [formControl]="code" id="idCode">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idName">岗位名称</label>
+                <input type="text"  class="form-control" [formControl]="name" id="idName" >
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>计算一级科目:</label>
+                <select  class="form-control" [formControl]="accountItemId">
+                  <option value="">请选择</option>
+                  <option *ngFor="let item of accountItemList" [value]="item.id">{{item.name}}-{{item.code}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idSalaryHour">时薪</label>
+                <input  type="text"  class="form-control" [formControl]="salaryHour" id="idSalaryHour" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idSalaryBasic">底薪</label>
+                <input  type="text"  class="form-control" [formControl]="salaryBasic" id="idSalaryBasic" >
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idComment">备注</label>
+                <input  type="text"  class="form-control" [formControl]="description" id="idComment" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>状态</label>
+                <select [formControl]="status" id="idStatusHot" class="form-control" >
+                  <option value="1">有效</option>
+                  <option value="-1">无效</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="offset-sm-5">
+              <button type="button" (click)="toAdd(accountpositionEditForm.value)"  class="btn btn-warning" >保存</button>
+              <button type="button" (click)="toBack()"  class="btn btn-warning" >返回</button>
+            </div>
+          </div>
+        </form>
+      </ba-card>
+    </div>
+  </div>
+  </div>

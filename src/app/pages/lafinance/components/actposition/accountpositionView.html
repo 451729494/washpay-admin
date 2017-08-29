@@ -1,0 +1,102 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12" *ngIf="accountPosition">
+      <ba-card  >
+         <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label >编码</label>
+                {{accountPosition.code}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label >岗位名称</label>
+                {{accountPosition.name}}
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>计算一级科目:</label>
+                {{accountPosition.accountItem.name}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label >时薪</label>
+                {{accountPosition.salaryHour}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label >底薪</label>
+                {{accountPosition.salaryBasic}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label >备注</label>
+                {{accountPosition.description}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>状态</label>
+                {{accountPosition.status}}
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="offset-sm-6 col-sm-6">
+
+              <button type="button" (click)="toBack()"  class="btn btn-warning" >返回</button>
+            </div>
+          </div>
+      </ba-card>
+    </div>
+  </div>
+  <div>
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 col-12">
+        <ba-card >
+          <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+              <th>科目编号</th>
+              <th>科目名称</th>
+              <th>科目计算方式</th>
+              <th>计算公式</th>
+              <th>计算公式中文</th>
+              <th>设置</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of listAccountPositionItem">
+              <td>{{item.accountItem.code}}</td>
+              <td>{{item.accountItem.name}}</td>
+              <td>
+                {{item.accountItem.calcType}}
+              </td>
+              <td>
+                {{item.calcSet}}
+              </td>
+              <td>
+                {{item.calcSetName}}
+              </td>
+              <td>
+                <button type="button" (click)="toSet(item.id)" class="btn btn-warning">设置公式</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </ba-card>
+      </div>
+    </div>

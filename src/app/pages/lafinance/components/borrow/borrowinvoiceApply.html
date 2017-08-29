@@ -1,0 +1,101 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+    <ba-card >
+
+      <div class="row">
+        <div class="offset-5">
+          <button type="button" (click)="toApproved('')" class="btn btn-warning">审核</button>
+          <button type="button" (click)="loadData()" class="btn btn-warning">查询</button>
+        </div>
+      </div>
+    </ba-card>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+
+      <ngx-datatable
+        class="material"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [rows]="rows"
+        [externalPaging]="true"
+        [count]="pageNav.totalElements"
+        [offset]="pageNav.page"
+        [limit]="pageNav.itemsPerPage"
+        [selected]="selected"
+        [selectionType]="'checkbox'"
+        (page)='setPage($event)'
+        (select)='onSelect($event)'
+        [scrollbarH]="true">
+        <ngx-datatable-column
+          [width]="30"
+          [sortable]="false"
+          [canAutoResize]="false"
+          [draggable]="false"
+          [resizeable]="false"
+          [headerCheckboxable]="true"
+          [checkboxable]="true">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="id" [width]="30" prop="id">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="编号"
+          [width]="300"
+          prop="invoiceCode">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="单据类型"
+          [width]="200"
+          prop="invoiceTypeStr">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="用户手机号码"
+          [width]="200"
+          prop="user.mobile">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="用户名"
+          [width]="100"
+          prop="user.realName">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="金额"
+          [width]="200"
+          prop="amount">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="创建日期"
+          [width]="100"
+          prop="checkUser.createdDate">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="审核状态"
+          [width]="100"
+          prop="checkUser.approvedStr">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="状态"
+          [width]="200"
+          prop="statusStr">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="操作" [width]="300" [flexGrow]="1" [flexGrow]="1" prop="id">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <button (click)="toApproved(value)" class="btn btn-warning">审核</button>
+            <button (click)="toView(value)" class="btn btn-warning">查看</button>
+
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+
+    </div>
+  </div>
+</div>
+
+

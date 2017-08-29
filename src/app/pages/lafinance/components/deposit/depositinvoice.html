@@ -1,0 +1,156 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+    <ba-card >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>入职开始时间</label>
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd" name="dpStart" [(ngModel)]="startDate" ngbDatepicker #d1="ngbDatepicker">
+              <div class="input-group-addon" (click)="d1.toggle()" >
+                <img src="../../../../../assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>至</label>
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd"
+                     name="dpEnd" [(ngModel)]="endDate" ngbDatepicker #d2="ngbDatepicker">
+              <div class="input-group-addon" (click)="d2.toggle()" >
+                <img src="../../../../../assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)" class="form-horizontal">
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <div>
+              <label>单据编号</label>
+              <input class="form-control" class="form-control" [formControl]="invoiceCode" >
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div>
+              <label>客户</label>
+               <select [formControl]="corpId" id="idCorpId"  class="form-control" >
+                <option value="">请选择</option>
+                <option *ngFor="let item of listCorpCustomer" [value]="item.id">{{item.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>审核状态</label>
+                <select  class="form-control" [formControl]="approved" >
+                  <option value="-1">审核拒绝</option>
+                  <option value="0">待审核</option>
+                  <option value="1" >审核中</option>
+                  <option value="2" >已审核</option>
+                </select>
+              </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>状态</label>
+                  <select  class="form-control" [formControl]="status" >
+                    <option value="0">待完成</option>
+                    <option value="1" >已完成</option>
+                    <option value="-1" >无效</option>
+                  </select>
+                </div>
+              </div>
+      </div>
+      </form>
+      <div class="row">
+        <div class="offset-5">
+          <button type="button" (click)="onSubmit(searchForm.value)" class="btn btn-warning">查询</button>
+        </div>
+      </div>
+    </ba-card>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+
+      <ngx-datatable
+        class="material"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [rows]="rows"
+        [externalPaging]="true"
+        [count]="pageNav.totalElements"
+        [offset]="pageNav.page"
+        [limit]="pageNav.itemsPerPage"
+        (page)='setPage($event)'
+        [scrollbarH]="true">
+        <ngx-datatable-column
+          name="id" [width]="30" prop="id">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="编号"
+          [width]="300"
+          prop="invoiceCode">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="单据类型"
+          [width]="200"
+          prop="invoiceTypeStr">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="用户"
+          [width]="200"
+          prop="user.realName">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="手机号码"
+          [width]="100"
+          prop="user.mobile">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="支付方式"
+          [width]="200"
+          prop="payTypeStr">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="合计金额"
+          [width]="200"
+          prop="amount">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="创建日期"
+          [width]="100"
+          prop="createdDate">
+        </ngx-datatable-column>
+
+        <ngx-datatable-column
+          name="状态"
+          [width]="200"
+          prop="statusStr">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="操作" [width]="300" [flexGrow]="1" [flexGrow]="1" prop="id">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <button (click)="toView(value)" class="btn btn-warning">查看</button>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+
+    </div>
+  </div>
+</div>
+
+

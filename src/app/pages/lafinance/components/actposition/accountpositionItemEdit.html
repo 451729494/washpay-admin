@@ -1,0 +1,139 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  >
+        <div class="col-lg-12 col-sm-12 col-12" *ngIf="accountPositionItem">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>岗位:</label>
+                {{accountPositionItem.accountPosition.name}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label >计算一级科目</label>
+                {{accountPositionItem.accountPosition.accountItem.code}}-{{accountPositionItem.accountPosition.accountItem.name}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>时薪:</label>
+                {{accountPositionItem.accountPosition.salaryHour}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label >底薪</label>
+                {{accountPositionItem.accountPosition.salaryBasic}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>当前计算科目:</label>
+                {{accountPositionItem.accountItem.code}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label >当前计算科目名:</label>
+                {{accountPositionItem.accountItem.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form [formGroup]="editForm" (ngSubmit)="toSave(editForm.value)" class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idCalcSet">公式代码</label>
+                <input type="text"  class="form-control" [formControl]="calcSet" id="idCalcSet">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idCalcSetName">公式名称</label>
+                <input type="text"  class="form-control" [formControl]="calcSetName" id="idCalcSetName" >
+              </div>
+            </div>
+          </div>
+        </form>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>计算符号:</label>
+                <select [ngModel]="curCalcTypeCode" (ngModelChange)="onCalcTypeChange($event)">
+                  <option value="">请选择</option>
+                  <option *ngFor="let item of calcTypeList" [value]='item.code'>{{item.name}}-{{item.code}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" (click)="toAddCalcType()"  class="btn btn-warning" >增加符号</button>
+             </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>设置括号:</label>
+                <select [ngModel]="curCalcTypeSign" (ngModelChange)="onCalcTypeSignChange($event)">
+                  <option value="">请选择</option>
+                  <option value="(">左括号</option>
+                  <option value=")">右括号</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>常量:</label>
+                <select [ngModel]="curAccountConstCode" (ngModelChange)="onAccountConstChange($event)">
+                  <option value="">请选择</option>
+                  <option *ngFor="let item of accountConstList" [value]='item.id'>{{item.name}}-{{item.code}}</option>
+                </select>
+              </div>
+            </div>
+            <div  class="col-sm-6">
+              <button type="button" (click)="toAddAccountConst()"  class="btn btn-warning" >增加常量</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>科目:</label>
+                <select [ngModel]="curAccountItemCode" (ngModelChange)="onAccountItemChange($event)">
+                  <option value="">请选择</option>
+                  <option *ngFor="let item of listPostionAccountItem" [value]='item.id'>{{item.accountItem.name}}-{{item.accountItem.code}}</option>
+                </select>
+              </div>
+            </div>
+            <div  class="col-sm-6">
+              <button type="button" (click)="toAddAccountItem()"  class="btn btn-warning" >增加科目变量</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <button type="button" (click)="toClear()"  class="btn btn-warning" >清除</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="offset-sm-5">
+              <button type="button" (click)="toSave(editForm.value)"  class="btn btn-warning" >保存</button>
+              <button type="button" (click)="toBack()"  class="btn btn-warning" >返回</button>
+            </div>
+          </div>
+      </ba-card>
+    </div>
+  </div>
+  </div>

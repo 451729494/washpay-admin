@@ -1,0 +1,159 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+    <ba-card  >
+      <form [formGroup]="recruitForm" (ngSubmit)="add(recruitForm.value)" class="form-horizontal">
+        <div class="row">
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idCategory">所属分类</label>
+              <select [formControl]="category" id="idCategory"  class="form-control" >
+                <option value="">请选择</option>
+                <option *ngFor="let item of categoryList" [value]="item.id">{{item.levelName}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputUsername">名称</label>
+            <input type="text" [formControl]="name" class="form-control" id="inputUsername">
+          </div>
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idTag">标签</label>
+              <input type="text" [formControl]="tag" class="form-control" id="idTag" >
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idsalaryStart">起薪</label>
+              <input  type="text" [formControl]="salaryStart" class="form-control" id="idsalaryStart" >
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idsalaryEnd">至</label>
+              <input  type="text" [formControl]="salaryEnd" class="form-control" id="idsalaryEnd"  >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idTag">城市</label>
+              <input type="text" [formControl]="city" class="form-control" id="idCity" >
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idAddress">工作地址</label>
+              <input  type="text" [formControl]="address" class="form-control" id="idAddress" >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idCount">招聘人数</label>
+              <input type="text" [formControl]="count" class="form-control" id="idCount" >
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idDescription">摘录</label>
+              <input type="text" [formControl]="description" class="form-control" id="idDescription" >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idImageUrl">图片</label>
+              <input type="text" [formControl]="imageUrl" class="form-control form-group" id="idImageUrl" >
+              <button class="btn btn-warning" (click)="photoMainShow()">上传</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+
+              <label class="form-group">发布时间</label>
+               <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="dpStart" [ngModelOptions]="{standalone: true}" [(ngModel)]="publishDate" ngbDatepicker #d1="ngbDatepicker">
+                <div class="input-group-addon" (click)="d1.toggle()" >
+                  <img src="../../../../../assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idStatusHot">是否置顶</label>
+              <select [formControl]="statusHot" id="idStatusHot" class="form-control" >
+                <option value="0">不置顶</option>
+                <option value="1">置顶</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="idStatus">状态</label>
+              <select [formControl]="status" id="idStatus" class="form-control" >
+                <option value="0">未发布</option>
+                <option value="1">已发布</option>
+                <option value="-1">已关闭</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-sm-5 ">
+            <button type="button" (click)="add(recruitForm.value)"  class="btn btn-warning" >保存</button>
+            <button type="button" (click)="toBack()"  class="btn btn-warning" >返回</button>
+          </div>
+        </div>
+      </form>
+      </ba-card>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ngb-tabset>
+        <ngb-tab title="详情资料">
+          <ng-template ngbTabContent>
+            <div class="row">
+              <div class="row col-md-12">
+                <button class="btn btn-warning" (click)="photoDetailShow()">上传</button>
+               </div>
+              <div class="row col-md-12">
+                  <ckeditor [(ngModel)]="ckeditorContent" [config]="ckconfig"></ckeditor>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="图片库">
+          <ng-template ngbTabContent>
+            <ba-card baCardClass="card-body-no-padding">
+              <div class="row">
+                <div class="col-md-12">
+                  <photo-list [entityName]="'recurit'" [entityId]="curId"></photo-list>
+                </div>
+              </div>
+            </ba-card>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
+</div>
