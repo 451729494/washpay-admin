@@ -1,0 +1,122 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  >
+        <form [formGroup]="adsLinkForm" (ngSubmit)="add(adsLinkForm.value)" class="form-horizontal">
+          <div class="row">
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idCategory">广告位置</label>
+                <select [formControl]="category" id="idCategory"  class="form-control" >
+                  <option value="">请选择</option>
+                  <option *ngFor="let item of categoryList" [value]="item.id">{{item.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputUsername">名称</label>
+                <input type="text" [formControl]="name" class="form-control" id="inputUsername">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idDescription">摘录</label>
+                <input type="text" [formControl]="description" class="form-control" id="idDescription" >
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inlineRadio1">链接类型</label>
+                <div class="col-sm-10">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <label class="radio-inline custom-radio nowrap">
+                        <input type="radio" name="linkType1" (change)="linkType = 0" id="inlineRadio1" value="0" [checked]="linkType" >
+                        <span >内部链接</span>
+                      </label>
+                    </div>
+                    <div class="col-sm-4">
+                      <label class="radio-inline custom-radio nowrap">
+                        <input type="radio" name="linkType1" (change)="linkType = 1" id="inlineRadio2" value="1" [checked]="linkType">
+                        <span>外部链接</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+          </div>
+          <div class="row" *ngIf="!linkType">
+            <div class="col-sm-6" >
+              <div class="form-group">
+                <label for="identityName">关联业务</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="entityName" class="form-control" id="identityName"  readonly>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="identityId">业务ID</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="entityId" class="form-control form-group" id="identityId" readonly>
+                <button type="button" (click)="openEntityShow()" class="btn btn-warning">选择</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row"  *ngIf="linkType">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idLinkUrl">外部链接</label>
+                <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="linkUrl" class="form-control" id="idLinkUrl">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idImageUrl">图片</label>
+                <input type="text" [formControl]="imageUrl" class="form-control form-group" id="idImageUrl" >
+                <button class="btn btn-warning" (click)="photoMainShow()">上传</button>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idMenuOrder">序号</label>
+                <input type="text" [formControl]="menuOrder" id="idMenuOrder" class="form-control" >
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idStatus">状态</label>
+                <select [formControl]="status" id="idStatus" class="form-control" >
+                  <option value="0">未发布</option>
+                  <option value="1">已发布</option>
+                  <option value="-1">已关闭</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="offset-sm-5">
+              <button type="button" (click)="add(adsLinkForm.value)"  class="btn btn-warning" >保存</button>
+              <button type="button" (click)="toBack()"  class="btn btn-warning" >返回</button>
+            </div>
+          </div>
+        </form>
+      </ba-card>
+    </div>
+  </div>
+  <div>
+  </div>

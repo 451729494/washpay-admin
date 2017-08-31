@@ -87,10 +87,10 @@ export class Keys {
   static KEY_USER_INFO: string = "labour_user_info";
   static KEY_USER: string = "labour_user";
 
-  static SERVER_URL:string = 'http://120.77.146.48/labour';
+  static SERVER_URL:string = 'http://192.168.0.9:8080/washpay';
 
   //static SERVER_UPLOAD_URL: string = 'http://139.129.202.208:8080/ysext-server';
-  static SERVER_UPLOAD_URL: string = 'http://120.77.146.48/labour';
+  static SERVER_UPLOAD_URL: string = 'http://192.168.0.9:8080/washpay';
 
   static HEADERS: Headers = new Headers({'Content-Type': 'application/json'});
 

@@ -50,7 +50,8 @@ export const routes: Routes = [
       { path: 'dashpatch', loadChildren: './dashpatch/dashpatch.module#DashboardPatchModule' },
       { path: 'lapatch', loadChildren: './lapatch/lapatch.module#LaPatchModule' },
       { path: 'lamanage', loadChildren: './lamanage/lamanage.module#LaManageModule' },
-      { path: 'lamaint', loadChildren: './lamaint/lamaint.module#LaMaintModule' }
+      { path: 'lamaint', loadChildren: './lamaint/lamaint.module#LaMaintModule' },
+      { path: 'laorder', loadChildren: './laorder/laorder.module#LaOrderModule' }
     ]
   }
 ];
