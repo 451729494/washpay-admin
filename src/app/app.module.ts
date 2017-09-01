@@ -71,7 +71,9 @@ import {UserResumeTrackService} from "./services/user/userResumeTrack.service";
 import {UserMealRecordService} from "./services/finance/userMealRecord.service";
 import {UserWorkMonthService} from "./services/finance/userWorkMonth.service";
 import {UserAccountRecordService} from "./services/finance/userAccountRecord.service";
-import {ConsumorderService} from "./services/consumorder/consumorder.service"
+import {ConsumorderService} from "./services/consumorder/consumorder.service";
+import {ChargeorderService} from "./services/chargeoder/chargeorder.service";
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -132,7 +134,8 @@ const APP_PROVIDERS = [
   UserMealRecordService,
   UserWorkMonthService,
   UserAccountRecordService,
-  ConsumorderService
+  ConsumorderService,
+  ChargeorderService
 ];
 
 export type StoreType = {

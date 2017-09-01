@@ -1,0 +1,108 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  *ngIf="consumOrder">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label></label>
+              <div class="input-group">
+                订单号：<b class="offset-1">{{consumOrder.corderNo}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group">
+                用户Id:<b class="offset-1"> {{consumOrder.userId}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                用户名:<b class="offset-1">{{consumOrder.username}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                设备编号:<b class="offset-1">{{consumOrder.deviceId}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                运营商编号:<b class="offset-1">{{consumOrder.shopId}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                运营商名称:<b class="offset-1">{{consumOrder.shopName}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                订单金额:<b class="offset-1">{{consumOrder.price}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                实际支付金额:<b class="offset-1">{{consumOrder.realPrice}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                是否使用优惠券:<b class="offset-1">{{consumOrder.isUsedDiscount}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                订单状态:<b class="offset-1">{{consumOrder.status}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                生成时间:<b class="offset-1">{{consumOrder.createdDate}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-5">
+            <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+          </div>
+        </div>
+
+      </ba-card>
+    </div>
+  </div>
+</div>

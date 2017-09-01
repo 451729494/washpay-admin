@@ -10,7 +10,9 @@ import { NgUploaderModule } from 'ngx-uploader';
 import { routing }       from './laorder.routing';
 import {LaOrder} from "./laorder.component";
 import {ConsumorderQuery} from "./components/consumorder/consumorder.component";
+import {ChargeorderQuery} from "./components/chargeorder/chargeorder.compenent";
 import {ConsumorderEdit} from "./components/consumorder/consumorderEdit.component";
+import {ConsumorderView} from "./components/consumorder/consumorderView.component";
 import {EntityListModule} from "../custom/entity-list-modal/entity-list.module";
 import {EntityListComponent} from "../custom/entity-list-modal/entity-list.component";
 
@@ -35,7 +37,8 @@ import {EntityListComponent} from "../custom/entity-list-modal/entity-list.compo
     LaOrder,
     ConsumorderEdit,
     ConsumorderQuery,
-    ConsumorderEdit
+    ConsumorderView,
+    ChargeorderQuery
   ],entryComponents:[EntityListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

@@ -4,6 +4,8 @@ import { Routes, RouterModule }  from '@angular/router';
 import {LaOrder} from "./laorder.component";
 import {ConsumorderQuery} from "./components/consumorder/consumorder.component";
 import {ConsumorderEdit} from "./components/consumorder/consumorderEdit.component";
+import {ConsumorderView} from "./components/consumorder/consumorderView.component";
+import {ChargeorderQuery} from "./components/chargeorder/chargeorder.compenent";
 
 
 
@@ -14,7 +16,9 @@ const routes: Routes = [
     component: LaOrder,
     children: [
       { path: 'consumorder', component: ConsumorderQuery },
-      { path: 'consumerorderedit', component: ConsumorderEdit }
+      { path: 'consumorderView', component: ConsumorderView },
+      { path: 'consumerorderedit', component: ConsumorderEdit },
+      { path: 'chargeorder', component: ChargeorderQuery }
     ]
   }
 ];

@@ -12,14 +12,14 @@ import { NgbModal,NgbDateStruct,NgbDateParserFormatter} from '@ng-bootstrap/ng-b
 
 import { Keys } from '../../../../services/models/env';
 import {PageDataModel} from "../../../../services/models/page.model";
-import {ConsumorderService} from "../../../../services/consumorder/consumorder.service";
+import {ChargeorderService} from "../../../../services/chargeoder/chargeorder.service";
 
 
 @Component({
-  selector: 'la-consumorder-query',
-  templateUrl:'./consumorder.html'
+  selector: 'la-chargeorder-query',
+  templateUrl:'./chargeorder.html'
 })
-export class ConsumorderQuery implements OnInit {
+export class ChargeorderQuery implements OnInit {
 
   public rows:Array<any> = [];
 
@@ -34,7 +34,7 @@ export class ConsumorderQuery implements OnInit {
   public categoryList:Array<any>;
 
 
-  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private consumorderService:ConsumorderService,private _dateParser:NgbDateParserFormatter) {
+  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private chargeorderService:ChargeorderService,private _dateParser:NgbDateParserFormatter) {
 
     this.searchForm = fb.group({
       'corderNo': [''],
@@ -62,7 +62,7 @@ export class ConsumorderQuery implements OnInit {
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
 
-    this.consumorderService.pageQuery(requestParam)
+    this.chargeorderService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -85,7 +85,7 @@ export class ConsumorderQuery implements OnInit {
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
     console.log(requestParam.toString());
 
-    this.consumorderService.pageQuery(requestParam)
+    this.chargeorderService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -101,7 +101,7 @@ export class ConsumorderQuery implements OnInit {
 
     let requestParam = new URLSearchParams();
     requestParam.set('id', curId);
-    this.consumorderService.delete(requestParam)
+    this.chargeorderService.delete(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.loadData();
@@ -116,7 +116,7 @@ export class ConsumorderQuery implements OnInit {
 
   public toView(curId) {
     console.log(curId+"==============")
-    this.router.navigate(['/pages/laorder/consumorderView'], {queryParams: {paramId: curId}});
+    // this.router.navigate(['/pages/laorder/consumorderView'], {queryParams: {paramId: curId}});
     console.log(curId+"--------------")
   }
 
