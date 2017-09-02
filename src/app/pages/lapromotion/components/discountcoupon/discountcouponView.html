@@ -1,0 +1,41 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  *ngIf="discountCoupon">
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group">
+                开始时间:<b class="offset-1"> {{discountCoupon.beginDate}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                结束时间:<b class="offset-1">{{discountCoupon.endDate}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                优惠金额:<b class="offset-1">{{discountCoupon.discountsMoney}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="offset-5">
+            <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+          </div>
+        </div>
+
+      </ba-card>
+    </div>
+  </div>
+</div>

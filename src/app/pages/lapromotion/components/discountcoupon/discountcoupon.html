@@ -1,0 +1,115 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card>
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)" class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idStatus">状态</label>
+                <div class="input-group">
+                  <select [formControl]="status" class="form-control" id="idStatus">
+                    <option value="">请选择</option>
+                    <option value="0">未发布</option>
+                    <option value="1">审核中</option>
+                    <option value="2">已发布</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idCategory" class=" control-label">分类</label>
+                <div class="input-group">
+                  <select [formControl]="category" class="form-control" id="idCategory">
+                    <option value="">请选择</option>
+                    <option *ngFor="let item of categoryList" [value]="item.id">{{item.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="row">
+          <div class="offset-5">
+            <button type="button" (click)="toAdd()" class="btn btn-warning">增加</button>
+            <button type="button" (click)="onSubmit(searchForm.value)" class="btn btn-warning">查询</button>
+          </div>
+        </div>
+
+      </ba-card>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+
+      <ngx-datatable
+        class="material"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [rows]="rows"
+        [externalPaging]="true"
+        [count]="pageNav.totalElements"
+        [offset]="pageNav.page"
+        [limit]="pageNav.itemsPerPage"
+        (page)='setPage($event)'
+        [scrollbarH]="true">
+        <ngx-datatable-column
+          name="优惠券id" [width]="30" prop="id">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="优惠券识别码"
+          [width]="300"
+          prop="identifiedCode">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="优惠券金额"
+          [width]="200"
+          prop="discountsMoney">
+        </ngx-datatable-column>
+
+        <ngx-datatable-column
+          name="优惠券总数"
+          [width]="100"
+          prop="discountCount">
+        </ngx-datatable-column>
+
+        <ngx-datatable-column
+          name="开始时间"
+          [width]="100"
+          prop="beginDate">
+        </ngx-datatable-column>
+
+        <ngx-datatable-column
+          name="结束时间"
+          [width]="100"
+          prop="endDate">
+        </ngx-datatable-column>
+
+        <ngx-datatable-column
+          name="创建时间"
+          [width]="100"
+          prop="createdDate">
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="操作" [width]="200" [flexGrow]="1" [flexGrow]="1" prop="id">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <button (click)="toView(value)" class="btn btn-warning">详情</button>
+            <!--<button (click)="toDelete(value)" class="btn btn-warning">删除</button>-->
+          </ng-template>
+        </ngx-datatable-column>
+
+      </ngx-datatable>
+
+    </div>
+  </div>
+
+
+</div>
+
+

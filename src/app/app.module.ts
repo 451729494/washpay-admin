@@ -73,6 +73,8 @@ import {UserWorkMonthService} from "./services/finance/userWorkMonth.service";
 import {UserAccountRecordService} from "./services/finance/userAccountRecord.service";
 import {ConsumorderService} from "./services/consumorder/consumorder.service";
 import {ChargeorderService} from "./services/chargeoder/chargeorder.service";
+import {DiscountcouponService} from "./services/discountcoupon/discountcoupon.service";
+import {BranchService} from "./services/branch/branch.service";
 
 
 // Application wide providers
@@ -135,7 +137,9 @@ const APP_PROVIDERS = [
   UserWorkMonthService,
   UserAccountRecordService,
   ConsumorderService,
-  ChargeorderService
+  ChargeorderService,
+  DiscountcouponService,
+  BranchService
 ];
 
 export type StoreType = {
