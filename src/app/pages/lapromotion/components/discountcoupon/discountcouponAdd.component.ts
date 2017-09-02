@@ -39,7 +39,7 @@ export class DiscountcouponAdd {
   public beginDate:AbstractControl;
   public endDate:AbstractControl;
   public discountsMoney:AbstractControl;
-  public identifiedCode:AbstractControl;
+ // public identifiedCode:AbstractControl;
   public discountCount:AbstractControl;
 
 
@@ -50,7 +50,7 @@ export class DiscountcouponAdd {
       'beginDate':['',Validators.compose([Validators.required])],
       'endDate': ['',Validators.compose([Validators.required])],
       'discountsMoney': ['',Validators.compose([Validators.required])],
-      'identifiedCode':['',Validators.compose([Validators.required])],
+      //'identifiedCode':['',Validators.compose([Validators.required])],
       'discountCount': ['',Validators.compose([Validators.required])],
 
     });
@@ -58,7 +58,7 @@ export class DiscountcouponAdd {
     this.beginDate = this.discountcouponForm.controls['beginDate'];
     this.endDate = this.discountcouponForm.controls['endDate'];
     this.discountsMoney = this.discountcouponForm.controls['discountsMoney'];
-    this.identifiedCode = this.discountcouponForm.controls['identifiedCode'];
+    //this.identifiedCode = this.discountcouponForm.controls['identifiedCode'];
     this.discountCount = this.discountcouponForm.controls['discountCount'];
 
 
@@ -83,7 +83,7 @@ export class DiscountcouponAdd {
             this.beginDate.setValue(res.data.beginDate);
             this.endDate.setValue(res.data.endDate);
             this.discountsMoney.setValue(res.data.discountsMoney);
-            this.identifiedCode = res.data.identifiedCode;
+            //this.identifiedCode = res.data.identifiedCode;
             this.discountCount= res.data.discountCount;
           }
         } else {
@@ -115,7 +115,8 @@ export class DiscountcouponAdd {
       this.discountcouponService.save(JSON.stringify(body)).subscribe(res=> {
         if(res.successed === '00'){
           if(!this.curId){
-            this.curId = res.data;
+            //this.curId = res.data;
+            this.router.navigate(['/pages/lapromotion/discountcoupon']);
           }
         }else {
           console.log(res.message);

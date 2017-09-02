@@ -29,7 +29,7 @@ export class DiscountcouponService {
 
 
   public save(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/discountCoupon/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
+    return this.http.post(Keys.SERVER_URL + '/discountCoupon/batchSave',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
