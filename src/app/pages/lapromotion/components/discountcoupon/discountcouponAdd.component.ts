@@ -100,9 +100,9 @@ export class DiscountcouponAdd {
   }
 
   public add(values:Object){
-
+    console.log('sdp'+1);
     if(this.discountcouponForm.valid){
-
+      console.log('sdp'+2);
       let body = {
         'id': this.curId,
         'beginDate': values['beginDate'],
@@ -111,7 +111,7 @@ export class DiscountcouponAdd {
         'discountCount': values['discountCount']
 
       };
-
+      console.log('sdp'+3);
       this.discountcouponService.save(JSON.stringify(body)).subscribe(res=> {
         if(res.successed === '00'){
           if(!this.curId){
