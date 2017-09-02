@@ -42,6 +42,12 @@ import {UserEvent} from "./components/event/userEvent.component";
 import {BusiTypeQuery} from "./components/busi/busiType.component";
 import {BusiTypeEdit} from "./components/busi/busiTypeEdit.component";
 
+import {EmployeeQuery} from "./components/employee/employee.component";
+import {EmployeeView} from "./components/employee/employeeView.component";
+import {EmployeeEdit} from "./components/employee/employeeEdit.component";
+
+import {ManagerQuery} from "./components/manager/manager.component";
+import {ManagerEdit} from "./components/manager/managerEdit.component";
 
 @NgModule({
   imports: [
@@ -83,6 +89,11 @@ import {BusiTypeEdit} from "./components/busi/busiTypeEdit.component";
     ManageVersionEdit,
     BusiTypeQuery,
     BusiTypeEdit,
+    EmployeeQuery,
+    EmployeeView,
+    EmployeeEdit,
+    ManagerQuery,
+    ManagerEdit
   ],entryComponents:[PhotoModalComponent,CorpManageListComponent,SysThirdListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

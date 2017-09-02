@@ -1,6 +1,6 @@
 <div class="auth-main">
   <div class="auth-block">
-    <h1>欢迎使用劳务派遣管理平台</h1>
+    <h1>欢迎使用支付系统</h1>
     <a routerLink="/register" class="auth-link">还没有账号？点击这里注册</a>
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
       <div class="form-group row" [ngClass]="{'has-error': (!email.valid && email.touched), 'has-success': (email.valid && email.touched)}">
