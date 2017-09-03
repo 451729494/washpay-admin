@@ -31,6 +31,10 @@ import {EmployeeEdit} from "./components/employee/employeeEdit.component";
 import {ManagerQuery} from "./components/manager/manager.component";
 import { ManagerEdit} from "./components/manager/managerEdit.component";
 
+import {CommercialQuery} from "./components/commercial/commercial.component";
+import {CommercialAdd} from "./components/commercial/commercialAdd.component";
+import {CommercialView} from "./components/commercial/commercialView.component";
+
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
   {
@@ -62,6 +66,9 @@ const routes: Routes = [
       { path: 'employeeedit', component: EmployeeEdit },
       { path: 'manager', component: ManagerQuery },
       { path: 'manageredit', component: ManagerEdit },
+      { path: 'commercial', component: CommercialQuery },
+      { path: 'commercialAdd', component: CommercialAdd },
+      { path: 'commercialView', component: CommercialView }
 
 
 

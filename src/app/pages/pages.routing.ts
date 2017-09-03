@@ -53,7 +53,8 @@ export const routes: Routes = [
       { path: 'lamaint', loadChildren: './lamaint/lamaint.module#LaMaintModule' },
       { path: 'laorder', loadChildren: './laorder/laorder.module#LaOrderModule' },
       { path: 'lapromotion', loadChildren: './lapromotion/lapromotion.module#DiscountCouponModule' },
-      { path: 'labranch', loadChildren: './labranch/labranch.module#BranchModule' }
+      { path: 'labranch', loadChildren: './labranch/labranch.module#BranchModule' },
+      { path: 'lacom', loadChildren: './lacom/lacom.module#LaComModule' }
     ]
   }
 ];

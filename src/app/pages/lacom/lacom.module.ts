@@ -49,6 +49,10 @@ import {EmployeeEdit} from "./components/employee/employeeEdit.component";
 import {ManagerQuery} from "./components/manager/manager.component";
 import {ManagerEdit} from "./components/manager/managerEdit.component";
 
+import {CommercialQuery} from "./components/commercial/commercial.component";
+import {CommercialAdd} from "./components/commercial/commercialAdd.component";
+import {CommercialView} from "./components/commercial/commercialView.component";
+
 @NgModule({
   imports: [
     CommonModule,
@@ -93,7 +97,11 @@ import {ManagerEdit} from "./components/manager/managerEdit.component";
     EmployeeView,
     EmployeeEdit,
     ManagerQuery,
-    ManagerEdit
+    ManagerEdit,
+    CommercialAdd,
+    CommercialQuery,
+    CommercialAdd,
+    CommercialView
   ],entryComponents:[PhotoModalComponent,CorpManageListComponent,SysThirdListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

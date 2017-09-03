@@ -1,0 +1,66 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  >
+        <form [formGroup]="commercialForm"  class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputName">商户名称</label>
+                <input type="text" [formControl]="name" class="form-control" id="inputName">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputPhone">联系方式</label>
+                <input type="text" [formControl]="phone" class="form-control" id="inputPhone">
+              </div>
+            </div>
+            <!--<div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputOrganizationCode">组织机构代码</label>
+                <input type="text" [formControl]="organizationCode" class="form-control" id="inputOrganizationCode">
+              </div>
+            </div>-->
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputCity">城市</label>
+                <input type="text" [formControl]="city" class="form-control" id="inputCity">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputAddress">地址</label>
+                <input type="text" [formControl]="address" class="form-control" id="inputAddress">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputEmail">邮箱</label>
+                <input type="text" [formControl]="email" class="form-control" id="inputEmail">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputRemark">备注</label>
+                <input type="text" [formControl]="remark" class="form-control" id="inputRemark">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="offset-sm-5">
+              <button type="button" (click)="add(commercialForm.value)"  class="btn btn-warning" >保存</button>
+              <button type="button" (click)="toBack()"  class="btn btn-warning" >返回</button>
+            </div>
+          </div>
+        </form>
+      </ba-card>
+    </div>
+  </div>
+  <div>
+  </div>

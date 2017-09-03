@@ -77,6 +77,7 @@ import {DiscountcouponService} from "./services/discountcoupon/discountcoupon.se
 import {BranchService} from "./services/branch/branch.service";
 import {EmployeeService} from "./services/corp/employee.service";
 import {ManagerService} from "./services/corp/manager.service";
+import {CommercialService} from "./services/commercial/commercial.service";
 
 
 // Application wide providers
@@ -143,7 +144,8 @@ const APP_PROVIDERS = [
   DiscountcouponService,
   BranchService,
   EmployeeService,
-  ManagerService
+  ManagerService,
+  CommercialService
 ];
 
 export type StoreType = {

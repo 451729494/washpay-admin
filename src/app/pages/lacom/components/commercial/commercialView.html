@@ -1,0 +1,72 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  *ngIf="commercial">
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group" style="text-align: right">
+                商户名称:<b class="offset-1"> {{commercial.name}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group " style="text-align: right">
+                联系方式:<b class="offset-1">{{commercial.phone}}</b>
+              </div>
+            </div>
+          </div>
+          <!--<div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group " style="text-align: right">
+                组织机构代码:<b class="offset-1">{{commercial.organizationCode}}</b>
+              </div>
+            </div>
+          </div>-->
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group" style="text-align: right">
+                城市:<b class="offset-1"> {{commercial.city}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group " style="text-align: right">
+                地址:<b class="offset-1">{{commercial.address}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group" style="text-align: right">
+                邮箱:<b class="offset-1"> {{commercial.email}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group " style="text-align: right">
+                备注:<b class="offset-1">{{commercial.remark}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-5">
+            <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+          </div>
+        </div>
+
+      </ba-card>
+    </div>
+  </div>
+</div>
