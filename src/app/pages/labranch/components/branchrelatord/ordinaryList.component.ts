@@ -102,7 +102,6 @@ export class OrdinaryList implements OnInit {
 
   public toChoose(curId) {
 
-    console.log("ordinaryId=="+curId);
     let requestParam = new URLSearchParams();
     requestParam.set('branchId', this.branchId);
     requestParam.set('ordinaryId',curId);
