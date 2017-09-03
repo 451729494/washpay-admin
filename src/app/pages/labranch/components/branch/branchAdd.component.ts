@@ -36,31 +36,18 @@ export class BranchAdd {
 
   //
   public branchForm:FormGroup;
-  public beginDate:AbstractControl;
-  public endDate:AbstractControl;
-  public discountsMoney:AbstractControl;
-  public identifiedCode:AbstractControl;
-  public discountCount:AbstractControl;
-
-
+  public name:AbstractControl;
+  public address:AbstractControl;
 
   public constructor(fb:FormBuilder, private route:ActivatedRoute, private router:Router,  private branchService:BranchService, private modalService: NgbModal, private authService:AuthService) {
 
     this.branchForm = fb.group({
-      'beginDate':['',Validators.compose([Validators.required])],
-      'endDate': ['',Validators.compose([Validators.required])],
-      'discountsMoney': ['',Validators.compose([Validators.required])],
-      'identifiedCode':['',Validators.compose([Validators.required])],
-      'discountCount': ['',Validators.compose([Validators.required])],
-
+      'name':['',Validators.compose([Validators.required])],
+      'address': ['',Validators.compose([Validators.required])]
     });
 
-    this.beginDate = this.branchForm.controls['beginDate'];
-    this.endDate = this.branchForm.controls['endDate'];
-    this.discountsMoney = this.branchForm.controls['discountsMoney'];
-    this.identifiedCode = this.branchForm.controls['identifiedCode'];
-    this.discountCount = this.branchForm.controls['discountCount'];
-
+    this.name = this.branchForm.controls['name'];
+    this.address = this.branchForm.controls['address'];
 
     //直接获取参数
     this.curId = this.route.snapshot.queryParams["paramId"];
@@ -76,15 +63,11 @@ export class BranchAdd {
     if(this.curId) {
       let params = new URLSearchParams();
       params.set('id', this.curId + '');
-
       this.branchService.find(params).subscribe(res => {
         if (res.successed === '00') {
           if (res.data) {
-            this.beginDate.setValue(res.data.beginDate);
-            this.endDate.setValue(res.data.endDate);
-            this.discountsMoney.setValue(res.data.discountsMoney);
-            this.identifiedCode = res.data.identifiedCode;
-            this.discountCount= res.data.discountCount;
+            this.name.setValue(res.data.name);
+            this.address.setValue(res.data.address)
           }
         } else {
           console.log(res.message);
@@ -102,21 +85,17 @@ export class BranchAdd {
   public add(values:Object){
 
     if(this.branchForm.valid){
-
       let body = {
         'id': this.curId,
-        'beginDate': values['beginDate'],
-        'endDate': values['endDate'],
-        'discountsMoney': values['discountsMoney'],
-        'discountCount': values['discountCount']
-
+        'name': values['name'],
+        'address': values['address']
       };
 
       this.branchService.save(JSON.stringify(body)).subscribe(res=> {
         if(res.successed === '00'){
-          if(!this.curId){
-            this.curId = res.data;
-          }
+
+            this.router.navigate(['/pages/labranch/branch']);
+
         }else {
           console.log(res.message);
         }

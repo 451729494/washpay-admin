@@ -27,24 +27,24 @@ export class BranchQuery implements OnInit {
 
   public searchForm:FormGroup;
 
-  public category:AbstractControl;
-  public status:AbstractControl;
+  public name:AbstractControl;
+  public address:AbstractControl;
 
 
-  public categoryList:Array<any>;
+  //public categoryList:Array<any>;
 
 
   public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private branchService:BranchService,private _dateParser:NgbDateParserFormatter) {
 
     this.searchForm = fb.group({
-      'category': [''],
-      'status': [''],
+      'name': [''],
+      'address': [''],
     });
 
 
 
-    this.category = this.searchForm.controls['category'];
-    this.status = this.searchForm.controls['status'];
+    this.name = this.searchForm.controls['name'];
+    this.address = this.searchForm.controls['address'];
 
 
   }
@@ -86,8 +86,8 @@ export class BranchQuery implements OnInit {
 
     let requestParam = new URLSearchParams();
 
-    requestParam.set('adsPos.id',  values['category']);
-    requestParam.set('status', values['status']);
+    requestParam.set('name',  values['name']);
+    requestParam.set('address', values['address']);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
@@ -137,7 +137,7 @@ export class BranchQuery implements OnInit {
   public toEdit(curId) {
     console.log("123");
     if (curId) {
-      this.router.navigate(['/pages/labranch/labranchEdit'], {
+      this.router.navigate(['/pages/labranch/branchAdd'], {
         queryParams: {
           paramId: curId
         }

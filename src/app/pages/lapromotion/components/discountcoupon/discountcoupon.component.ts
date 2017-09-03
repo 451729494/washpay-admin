@@ -27,24 +27,24 @@ export class DiscountcouponQuery implements OnInit {
 
   public searchForm:FormGroup;
 
-  public category:AbstractControl;
-  public status:AbstractControl;
+  public discountsMoney:AbstractControl;
+ // public status:AbstractControl;
 
 
-  public categoryList:Array<any>;
+ // public categoryList:Array<any>;
 
 
   public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private discountcouponService:DiscountcouponService,private _dateParser:NgbDateParserFormatter) {
 
     this.searchForm = fb.group({
-      'category': [''],
-      'status': [''],
+      'discountsMoney': [''],
+     // 'status': [''],
     });
 
 
 
-    this.category = this.searchForm.controls['category'];
-    this.status = this.searchForm.controls['status'];
+    this.discountsMoney = this.searchForm.controls['discountsMoney'];
+    //this.status = this.searchForm.controls['status'];
 
 
   }
@@ -86,8 +86,9 @@ export class DiscountcouponQuery implements OnInit {
 
     let requestParam = new URLSearchParams();
 
-    requestParam.set('adsPos.id',  values['category']);
-    requestParam.set('status', values['status']);
+    requestParam.set('discountsMoney',  values['discountsMoney']);
+    console.log("buyao1"+values['discountsMoney']);
+    //requestParam.set('status', values['status']);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
