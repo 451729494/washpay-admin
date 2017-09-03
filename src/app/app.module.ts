@@ -78,6 +78,7 @@ import {BranchService} from "./services/branch/branch.service";
 import {EmployeeService} from "./services/corp/employee.service";
 import {ManagerService} from "./services/corp/manager.service";
 import {CommercialService} from "./services/commercial/commercial.service";
+import {OrdinaryService} from "./services/ordinary/ordinary.service";
 
 
 // Application wide providers
@@ -145,7 +146,8 @@ const APP_PROVIDERS = [
   BranchService,
   EmployeeService,
   ManagerService,
-  CommercialService
+  CommercialService,
+  OrdinaryService
 ];
 
 export type StoreType = {

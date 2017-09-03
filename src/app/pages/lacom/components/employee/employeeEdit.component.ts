@@ -12,6 +12,7 @@ import { Keys } from '../../../../services/models/env';
 import { UserService } from '../../../../services/user.service';
 import {AuthorityService} from "../../../../services/check/authority.service";
 import {EmployeeService} from "../../../../services/corp/employee.service";
+import { BranchService } from "../../../../services/branch/branch.service";
 
 
 @Component({
@@ -37,7 +38,7 @@ export class EmployeeEdit implements OnInit{
 
   loading = false;
 
-  public constructor(fb:FormBuilder,private acRoute:ActivatedRoute,private router: Router,private employeeService:EmployeeService) {
+  public constructor(fb:FormBuilder,private acRoute:ActivatedRoute,private router: Router,private employeeService:EmployeeService,private branchService:BranchService) {
 
     this.employeeForm = fb.group({
       'employName': ['',Validators.compose([Validators.required])],
@@ -56,6 +57,14 @@ export class EmployeeEdit implements OnInit{
 
     //直接获取参数
     this.curId = this.acRoute.snapshot.queryParams["paramId"];
+
+    this.branchService.findAll().subscribe(res =>{
+      if(res.successed === '00'){
+        this.branchList = res.data;
+      }else {
+        console.log(res.message);
+      }
+    });
 
 
   }
@@ -76,14 +85,6 @@ export class EmployeeEdit implements OnInit{
 
   public loadData(){
 
-    // this.employeeService.findAll()
-    //   .subscribe(res =>{
-    //     if(res.successed === '00'){
-    //       this.branch = res.data;
-    //     }else {
-    //       this.msg = res.message;
-    //     }
-    //   });
     console.log(this.curId+"--------------")
     if(this.curId){
       let requestParam = new URLSearchParams();

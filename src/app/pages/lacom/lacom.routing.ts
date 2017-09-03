@@ -30,6 +30,11 @@ import {EmployeeEdit} from "./components/employee/employeeEdit.component";
 
 import {ManagerQuery} from "./components/manager/manager.component";
 import { ManagerEdit} from "./components/manager/managerEdit.component";
+import {ManagerView}  from "./components/manager/managerView.component"
+
+import {OrdinaryQuery} from "./components/ordinary/ordinary.component";
+import {OrdinaryEdit} from "./components/ordinary/ordinaryEdit.component"
+import {OrdinaryView} from "./components/ordinary/ordinaryView.component"
 
 import {CommercialQuery} from "./components/commercial/commercial.component";
 import {CommercialAdd} from "./components/commercial/commercialAdd.component";
@@ -66,6 +71,10 @@ const routes: Routes = [
       { path: 'employeeedit', component: EmployeeEdit },
       { path: 'manager', component: ManagerQuery },
       { path: 'manageredit', component: ManagerEdit },
+      { path: 'managerview', component: ManagerView },
+      { path: 'ordinary', component: OrdinaryQuery },
+      { path: 'ordinaryedit', component: OrdinaryEdit },
+      { path: 'ordinaryview', component: OrdinaryView },
       { path: 'commercial', component: CommercialQuery },
       { path: 'commercialAdd', component: CommercialAdd },
       { path: 'commercialView', component: CommercialView }

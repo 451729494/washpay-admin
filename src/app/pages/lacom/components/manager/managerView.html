@@ -1,0 +1,56 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  *ngIf="manager">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label></label>
+              <div class="input-group">
+                管理员id：<b class="offset-1">{{manager.id}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label></label>
+              <div class="input-group">
+                管理员姓名：<b class="offset-1">{{manager.name}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                email:<b class="offset-1">{{manager.email}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                手机号码:<b class="offset-1">{{manager.mobile}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                生成时间:<b class="offset-1">{{manager.createdDate}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-5">
+            <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+          </div>
+        </div>
+      </ba-card>
+    </div>
+  </div>
+</div>

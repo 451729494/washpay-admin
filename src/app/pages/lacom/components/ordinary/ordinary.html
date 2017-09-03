@@ -6,30 +6,17 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="idemployName">员工姓名</label>
+                <label for="idname">企业名称</label>
                 <div class="input-group">
-                  <input type="text" [formControl]="employName" class="form-control" id="idemployName">
+                  <input type="text" [formControl]="companyName" class="form-control" id="idname">
                 </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="idmobile">手机号码</label>
+                <label for="idmobile">联系电话</label>
                 <div class="input-group">
-                  <input type="text" [formControl]="mobile" class="form-control" id="idmobile">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="idParentId" class="control-label">网点</label>
-                <div class="input-group">
-                  <select [formControl]="branchId" class="form-control" id="idParentId">
-                    <option value="">请选择</option>
-                    <option *ngFor="let item of branchList" [value]="item.id">{{item.name}}</option>
-                  </select>
+                  <input type="text" [formControl]="connectPhone" class="form-control" id="idmobile">
                 </div>
               </div>
             </div>
@@ -69,20 +56,29 @@
           name="id" [width]="30" prop="id">
         </ngx-datatable-column>
         <ngx-datatable-column
-          name="员工姓名"
-          [width]="100"
-          prop="employName">
+          name="名称"
+          [width]="200"
+          prop="companyName">
         </ngx-datatable-column>
         <ngx-datatable-column
-          name="手机号码"
+          name="城市"
           [width]="100"
-          prop="mobile">
+          prop="city">
         </ngx-datatable-column>
-
         <ngx-datatable-column
-          name="所属网点"
+          name="地址"
           [width]="100"
-          prop="branchName">
+          prop="address">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="联系电话"
+          [width]="100"
+          prop="connectPhone">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="创建时间"
+          [width]="100"
+          prop="createdDate">
         </ngx-datatable-column>
         <ngx-datatable-column name="操作" [width]="200" [flexGrow]="1" [flexGrow]="1" prop="id">
           <ng-template let-value="value" ngx-datatable-cell-template>

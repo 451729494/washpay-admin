@@ -116,7 +116,7 @@ export class ManagerQuery implements OnInit {
 
 
   public toView(curId) {
-    this.router.navigate(['/pages/lacom/employeeview'], {queryParams: {paramId: curId}});
+    this.router.navigate(['/pages/lacom/managerview'], {queryParams: {paramId: curId}});
   }
 
   public toEdit(curId) {

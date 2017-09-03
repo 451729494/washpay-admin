@@ -32,13 +32,13 @@ export class ManagerService {
     return this.http.post(Keys.SERVER_URL + '/superAdmin/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
-  public addEmployee(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/superAdmin/superAdmin',  params, {'headers': this._authService.getHeadersAuthJSON()})
+  public addSuperAdmin(params:any):Observable<any> {
+    return this.http.post(Keys.SERVER_URL + '/superAdmin/addSuperAdmin',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
   public delete(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/superAdmin/delete', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/superAdmin/delete', '',{'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 

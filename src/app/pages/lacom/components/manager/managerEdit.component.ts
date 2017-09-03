@@ -111,7 +111,7 @@ export class ManagerEdit implements OnInit{
         'password':values['password'],
       };
 
-      this.managerService.save(JSON.stringify(requestParam))
+      this.managerService.addSuperAdmin(JSON.stringify(requestParam))
         .subscribe(res =>{
           if(res.successed === '00'){
             this.toBack();

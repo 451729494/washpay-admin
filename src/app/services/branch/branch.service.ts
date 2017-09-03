@@ -38,4 +38,9 @@ export class BranchService {
       .map(res => res.json());
   }
 
+  public findAll():Observable<any>{
+    return this.http.get(Keys.SERVER_URL+'/branch/findAll', { 'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
+
 }

@@ -48,6 +48,11 @@ import {EmployeeEdit} from "./components/employee/employeeEdit.component";
 
 import {ManagerQuery} from "./components/manager/manager.component";
 import {ManagerEdit} from "./components/manager/managerEdit.component";
+import {ManagerView} from "./components/manager/managerView.component"
+
+import {OrdinaryQuery} from "./components/ordinary/ordinary.component"
+import {OrdinaryEdit} from "./components/ordinary/ordinaryEdit.component";
+import {OrdinaryView} from "./components/ordinary/ordinaryView.component";
 
 import {CommercialQuery} from "./components/commercial/commercial.component";
 import {CommercialAdd} from "./components/commercial/commercialAdd.component";
@@ -98,6 +103,10 @@ import {CommercialView} from "./components/commercial/commercialView.component";
     EmployeeEdit,
     ManagerQuery,
     ManagerEdit,
+    ManagerView,
+    OrdinaryQuery,
+    OrdinaryEdit,
+    OrdinaryView,
     CommercialAdd,
     CommercialQuery,
     CommercialAdd,

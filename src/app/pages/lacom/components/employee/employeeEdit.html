@@ -10,7 +10,7 @@
                 <div class="input-group">
                   <select [formControl]="branchId" class="form-control" id="idParentId">
                     <option value="">请选择</option>
-                    <option *ngFor="let item of branchList" [value]="item.id">{{item.name}}-{{item.code}}</option>
+                    <option *ngFor="let item of branchList" [value]="item.id">{{item.name}}</option>
                   </select>
                 </div>
               </div>

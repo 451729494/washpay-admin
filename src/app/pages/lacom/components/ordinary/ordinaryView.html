@@ -1,0 +1,84 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card  *ngIf="ordinaryAdmin">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label></label>
+              <div class="input-group">
+                管理员id：<b class="offset-1">{{ordinaryAdmin.id}}</b>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label></label>
+              <div class="input-group">
+                名称：<b class="offset-1">{{ordinaryAdmin.companyName}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                联系人:<b class="offset-1">{{ordinaryAdmin.connectName}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                联系电话:<b class="offset-1">{{ordinaryAdmin.connectPhone}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                城市:<b class="offset-1">{{ordinaryAdmin.city}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                地址:<b class="offset-1">{{ordinaryAdmin.address}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="input-group ">
+                生成时间:<b class="offset-1">{{ordinaryAdmin.createdDate}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+                描述:<b class="offset-1">{{ordinaryAdmin.remark}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-5">
+            <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+          </div>
+        </div>
+      </ba-card>
+    </div>
+  </div>
+</div>

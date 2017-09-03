@@ -12,15 +12,13 @@ import { NgbModal,NgbDateStruct,NgbDateParserFormatter} from '@ng-bootstrap/ng-b
 
 import { Keys } from '../../../../services/models/env';
 import {PageDataModel} from "../../../../services/models/page.model";
-import {EmployeeService} from "../../../../services/corp/employee.service";
-import { BranchService } from "../../../../services/branch/branch.service";
-
+import {OrdinaryService} from "../../../../services/ordinary/ordinary.service";
 
 @Component({
-  selector: 'la-employee-query',
-  templateUrl:'./employee.html'
+  selector: 'la-ordinary-query',
+  templateUrl:'./ordinary.html'
 })
-export class EmployeeQuery implements OnInit {
+export class OrdinaryQuery implements OnInit {
 
   public rows:Array<any> = [];
 
@@ -28,35 +26,23 @@ export class EmployeeQuery implements OnInit {
 
   public searchForm:FormGroup;
 
-  public employName:AbstractControl;
-  public mobile:AbstractControl;
-  public branchId:AbstractControl;
+  public connectPhone:AbstractControl;
+  public companyName:AbstractControl;
 
 
-  public branchList:Array<any>;
 
-
-  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private employeeService:EmployeeService,private branchService:BranchService,private _dateParser:NgbDateParserFormatter) {
+  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private ordinaryService:OrdinaryService,private _dateParser:NgbDateParserFormatter) {
 
     this.searchForm = fb.group({
-      'employName': [''],
-      'mobile': [''],
-      'branchId':[''],
+      'connectPhone': [''],
+      'companyName': ['']
     });
 
 
 
-    this.employName = this.searchForm.controls['employName'];
-    this.mobile = this.searchForm.controls['mobile'];
-    this.branchId = this.searchForm.controls['branchId']
+    this.connectPhone = this.searchForm.controls['connectPhone'];
+    this.companyName = this.searchForm.controls['companyName'];
 
-    this.branchService.findAll().subscribe(res =>{
-      if(res.successed === '00'){
-        this.branchList = res.data;
-      }else {
-        console.log(res.message);
-      }
-    });
 
   }
 
@@ -67,13 +53,13 @@ export class EmployeeQuery implements OnInit {
 
   public loadData() {
     let requestParam = new URLSearchParams();
-    requestParam.set('employName', this.employName.value);
-    requestParam.set('mobile', this.mobile.value);
+    requestParam.set('connectPhone', this.connectPhone.value);
+    requestParam.set('companyName', this.companyName.value);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
 
-    this.employeeService.pageQuery(requestParam)
+    this.ordinaryService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -89,15 +75,14 @@ export class EmployeeQuery implements OnInit {
 
     let requestParam = new URLSearchParams();
 
-    requestParam.set('employName',  values['employName']);
-    requestParam.set('mobile', values['mobile']);
-    requestParam.set('branchId',values['branchId'])
+    requestParam.set('connectPhone',  values['connectPhone']);
+    requestParam.set('companyName', values['companyName']);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
     console.log(requestParam.toString());
 
-    this.employeeService.pageQuery(requestParam)
+    this.ordinaryService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -112,7 +97,7 @@ export class EmployeeQuery implements OnInit {
   public toDelete(curId) {
     let requestParam = new URLSearchParams();
     requestParam.set('id', curId);
-    this.employeeService.delete(requestParam)
+    this.ordinaryService.delete(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.loadData();
@@ -126,16 +111,15 @@ export class EmployeeQuery implements OnInit {
 
 
   public toView(curId) {
-    this.router.navigate(['/pages/lacom/employeeview'], {queryParams: {paramId: curId}});
+    this.router.navigate(['/pages/lacom/ordinaryview'], {queryParams: {paramId: curId}});
   }
 
   public toEdit(curId) {
-
-    this.router.navigate(['/pages/lacom/employeeedit'], {queryParams: {paramId: curId}});
+    this.router.navigate(['/pages/lacom/ordinaryedit'], {queryParams: {paramId: curId}});
   }
 
   public toAdd() {
-    this.router.navigate(['/pages/lacom/employeeedit'], {queryParams: {paramId: ''}});
+    this.router.navigate(['/pages/lacom/ordinaryedit'], {queryParams: {paramId: ''}});
   }
   setPage(event){
 
