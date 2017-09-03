@@ -12,6 +12,8 @@ import {LaBranch} from "./labranch.component";
 import {BranchQuery} from "./components/branch/branch.component";
 import {BranchAdd} from "./components/branch/branchAdd.component";
 import {BranchView} from "./components/branch/branchView.component";
+import {BranchBind} from "./components/branchrelatord/branchrelatord.component";
+import {OrdinaryList} from "./components/branchrelatord/ordinaryList.component"
 import {EntityListModule} from "../custom/entity-list-modal/entity-list.module";
 import {EntityListComponent} from "../custom/entity-list-modal/entity-list.component";
 
@@ -37,7 +39,9 @@ import {EntityListComponent} from "../custom/entity-list-modal/entity-list.compo
     BranchAdd,
     BranchQuery,
     BranchAdd,
-    BranchView
+    BranchView,
+    BranchBind,
+    OrdinaryList
   ],entryComponents:[EntityListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
