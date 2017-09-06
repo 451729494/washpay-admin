@@ -9,6 +9,7 @@ import {BranchBind} from "./components/branchrelatord/branchrelatord.component";
 import {OrdinaryList} from "./components/branchrelatord/ordinaryList.component";
 import {BranchBindCom} from "./components/branchrelatcom/branchrelatcom.component";
 import {BindedCommercial} from "./components/branchrelatcom/bindedcommercial.component";
+import {MyBranch} from "./components/mybranch/mybranch.component";
 
 
 // noinspection TypeScriptValidateTypes
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'ordinarylist', component: OrdinaryList },
       { path: 'branchrelatcom', component: BranchBindCom },
       { path: 'bindedcommercial', component: BindedCommercial },
+      { path: 'mybranch', component: MyBranch }
     ]
   }
 ];

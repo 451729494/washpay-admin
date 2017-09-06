@@ -18,6 +18,7 @@ import {BranchBindCom} from "./components/branchrelatcom/branchrelatcom.componen
 import {BindedCommercial} from "./components/branchrelatcom/bindedcommercial.component";
 import {EntityListModule} from "../custom/entity-list-modal/entity-list.module";
 import {EntityListComponent} from "../custom/entity-list-modal/entity-list.component";
+import {MyBranch} from "./components/mybranch/mybranch.component";
 
 
 
@@ -45,7 +46,8 @@ import {EntityListComponent} from "../custom/entity-list-modal/entity-list.compo
     BranchBind,
     OrdinaryList,
     BranchBindCom,
-    BindedCommercial
+    BindedCommercial,
+    MyBranch
   ],entryComponents:[EntityListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
