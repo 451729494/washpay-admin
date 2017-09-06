@@ -43,8 +43,14 @@ export class BranchService {
       .map(res => res.json());
   }
 
+
   public bindOrdinary(params:any):Observable<any>{
     return this.http.get(Keys.SERVER_URL+'/branch/bindOrdinary', { 'search': params,'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
+
+  public bindCom(params:any):Observable<any>{
+    return this.http.get(Keys.SERVER_URL+'/branch/bindCom', { 'search': params,'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 

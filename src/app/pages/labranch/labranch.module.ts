@@ -13,7 +13,9 @@ import {BranchQuery} from "./components/branch/branch.component";
 import {BranchAdd} from "./components/branch/branchAdd.component";
 import {BranchView} from "./components/branch/branchView.component";
 import {BranchBind} from "./components/branchrelatord/branchrelatord.component";
-import {OrdinaryList} from "./components/branchrelatord/ordinaryList.component"
+import {OrdinaryList} from "./components/branchrelatord/ordinaryList.component";
+import {BranchBindCom} from "./components/branchrelatcom/branchrelatcom.component";
+import {BindedCommercial} from "./components/branchrelatcom/bindedcommercial.component";
 import {EntityListModule} from "../custom/entity-list-modal/entity-list.module";
 import {EntityListComponent} from "../custom/entity-list-modal/entity-list.component";
 
@@ -41,7 +43,9 @@ import {EntityListComponent} from "../custom/entity-list-modal/entity-list.compo
     BranchAdd,
     BranchView,
     BranchBind,
-    OrdinaryList
+    OrdinaryList,
+    BranchBindCom,
+    BindedCommercial
   ],entryComponents:[EntityListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
