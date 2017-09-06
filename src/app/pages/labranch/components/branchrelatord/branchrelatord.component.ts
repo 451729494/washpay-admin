@@ -51,21 +51,11 @@ export class BranchBind implements OnInit {
 
   public ngOnInit():void {
 
-    // this.consumorderService.findAll().subscribe(res =>{
-    //   if(res.successed === '00'){
-    //     this.categoryList = res.data;
-    //   }else {
-    //     console.log(res.message);
-    //   }
-    // });
-    console.log("============")
     this.loadData();
   }
 
   public loadData() {
     let requestParam = new URLSearchParams();
-    // requestParam.set('adsPos.id', this.category.value);
-    // requestParam.set('status', this.status.value);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
@@ -91,7 +81,6 @@ export class BranchBind implements OnInit {
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
-    console.log(requestParam.toString());
 
     this.branchService.pageQuery(requestParam)
       .subscribe(res => {
@@ -106,12 +95,22 @@ export class BranchBind implements OnInit {
   }
 
   public toBind(curId) {
-    console.log("branchId==="+curId)
     this.router.navigate(['/pages/labranch/ordinarylist'], {queryParams: {paramId: curId}});
   }
 
-  public unBind(){
+  public unBind(curId){
+    let requestParam = new URLSearchParams();
+    requestParam.set('branchId',curId);
 
+    this.branchService.unbindOrdinary(requestParam)
+      .subscribe(res => {
+        if (res.successed === '00') {
+          // this.router.navigate(['/pages/labranch/branchrelatord']);
+          this.loadData();
+        } else {
+          alert(res.message);
+        }
+      });
   }
 
 
