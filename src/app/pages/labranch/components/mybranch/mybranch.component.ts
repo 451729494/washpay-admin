@@ -61,7 +61,7 @@ export class MyBranch implements OnInit {
     let requestParam = new URLSearchParams();
     // requestParam.set('status', this.status.value);
 
-    requestParam.set('userId',this.curUserId)
+    requestParam.set('userId',this.curUserId+'');
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
 
