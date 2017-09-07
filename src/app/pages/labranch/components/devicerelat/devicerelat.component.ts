@@ -12,14 +12,15 @@ import { NgbModal,NgbDateStruct,NgbDateParserFormatter} from '@ng-bootstrap/ng-b
 
 import { Keys } from '../../../../services/models/env';
 import {PageDataModel} from "../../../../services/models/page.model";
-import {DiscountcouponService} from "../../../../services/discountcoupon/discountcoupon.service";
+import {BranchService} from "../../../../services/branch/branch.service";
+import {DevicerelatService} from "../../../../services/branch/devicerelat.service";
 
 
 @Component({
-  selector: 'la-discountcoupon-query',
-  templateUrl:'./discountcoupon.html'
+  selector: 'la-devicerelat-query',
+  templateUrl:'./devicerelat.html'
 })
-export class DiscountcouponQuery implements OnInit {
+export class DevicerelatQuery implements OnInit {
 
   public rows:Array<any> = [];
 
@@ -27,24 +28,29 @@ export class DiscountcouponQuery implements OnInit {
 
   public searchForm:FormGroup;
 
-  public discountsMoney:AbstractControl;
- // public status:AbstractControl;
+  public branchId:AbstractControl;
+
+  public branchList:Array<any>;
 
 
- // public categoryList:Array<any>;
-
-
-  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private discountcouponService:DiscountcouponService,private _dateParser:NgbDateParserFormatter) {
+  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private branchService:BranchService,private devicerelatService:DevicerelatService,private _dateParser:NgbDateParserFormatter) {
 
     this.searchForm = fb.group({
-      'discountsMoney': [''],
-     // 'status': [''],
+      'name': [''],
+      'address': [''],
+      'branchId': ['']
     });
 
 
+    this.branchId = this.searchForm.controls['branchId']
 
-    this.discountsMoney = this.searchForm.controls['discountsMoney'];
-    //this.status = this.searchForm.controls['status'];
+    this.branchService.findAll().subscribe(res =>{
+      if(res.successed === '00'){
+        this.branchList = res.data;
+      }else {
+        console.log(res.message);
+      }
+    });
 
 
   }
@@ -56,13 +62,11 @@ export class DiscountcouponQuery implements OnInit {
 
   public loadData() {
     let requestParam = new URLSearchParams();
-    // requestParam.set('adsPos.id', this.category.value);
-    // requestParam.set('status', this.status.value);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
 
-    this.discountcouponService.pageQuery(requestParam)
+    this.devicerelatService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -78,15 +82,13 @@ export class DiscountcouponQuery implements OnInit {
 
     let requestParam = new URLSearchParams();
 
-    requestParam.set('discountsMoney',  values['discountsMoney']);
-    console.log("buyao1"+values['discountsMoney']);
-    //requestParam.set('status', values['status']);
+    requestParam.set('branchId', values['branchId']);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
     console.log(requestParam.toString());
 
-    this.discountcouponService.pageQuery(requestParam)
+    this.devicerelatService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -102,7 +104,7 @@ export class DiscountcouponQuery implements OnInit {
 
     let requestParam = new URLSearchParams();
     requestParam.set('id', curId);
-    this.discountcouponService.delete(requestParam)
+    this.devicerelatService.delete(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.loadData();
@@ -117,17 +119,13 @@ export class DiscountcouponQuery implements OnInit {
 
   public toAdd() {
 
-    this.router.navigate(['/pages/lapromotion/discountcouponAdd'], {
-      queryParams: {
-        paramId: ''
-      }
-    });
+    this.router.navigate(['/pages/labranch/devicerelatedit']);
   }
 
 
   public toEdit(curId) {
     if (curId) {
-      this.router.navigate(['/pages/lapromotion/discountcouponEdit'], {
+      this.router.navigate(['/pages/labranch/branchAdd'], {
         queryParams: {
           paramId: curId
         }
@@ -136,11 +134,25 @@ export class DiscountcouponQuery implements OnInit {
   }
 
   public toView(curId) {
-    console.log(curId+"==============")
-    this.router.navigate(['/pages/lapromotion/discountcouponView'], {queryParams: {paramId: curId}});
-    console.log(curId+"--------------");
+    this.router.navigate(['/pages/labranch/branchView'], {queryParams: {paramId: curId}});
   }
 
+  public unBind(curId){
+    let requestParam = new URLSearchParams();
+    requestParam.set('id', curId);
+    this.devicerelatService.unbind(requestParam)
+      .subscribe(res => {
+        if (res.successed === '00') {
+          this.loadData();
+        } else {
+          alert(res.message);
+        }
+      });
+  }
+
+  public toBind(curId) {
+    this.router.navigate(['/pages/labranch/devicerelatbranchlist'], {queryParams: {paramId: curId}});
+  }
 
   setPage(event){
 

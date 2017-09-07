@@ -10,7 +10,10 @@ import {OrdinaryList} from "./components/branchrelatord/ordinaryList.component";
 import {BranchBindCom} from "./components/branchrelatcom/branchrelatcom.component";
 import {BindedCommercial} from "./components/branchrelatcom/bindedcommercial.component";
 import {MyBranch} from "./components/mybranch/mybranch.component";
-
+import {CommBranch} from "./components/commbranch/commbranch.component";
+import {DevicerelatQuery} from "./components/devicerelat/devicerelat.component";
+import {DevicerelatEdit} from "./components/devicerelat/devicerelatEdit.component";
+import {DevicerelatBranchList} from "./components/devicerelat/devicerelatBranchList.component";
 
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
@@ -25,7 +28,13 @@ const routes: Routes = [
       { path: 'ordinarylist', component: OrdinaryList },
       { path: 'branchrelatcom', component: BranchBindCom },
       { path: 'bindedcommercial', component: BindedCommercial },
-      { path: 'mybranch', component: MyBranch }
+      { path: 'mybranch', component: MyBranch },
+      { path: 'commbranch', component: CommBranch },
+      { path: 'devicerelat', component: DevicerelatQuery },
+      { path: 'devicerelatedit', component: DevicerelatEdit },
+      { path: 'devicerelatbranchlist', component: DevicerelatBranchList }
+
+
     ]
   }
 ];

@@ -12,14 +12,15 @@ import { NgbModal,NgbDateStruct,NgbDateParserFormatter} from '@ng-bootstrap/ng-b
 
 import { Keys } from '../../../../services/models/env';
 import {PageDataModel} from "../../../../services/models/page.model";
-import {DiscountcouponService} from "../../../../services/discountcoupon/discountcoupon.service";
+import {BranchService} from "../../../../services/branch/branch.service";
+import {DevicerelatService} from "../../../../services/branch/devicerelat.service";
 
 
 @Component({
-  selector: 'la-discountcoupon-query',
-  templateUrl:'./discountcoupon.html'
+  selector: 'la-devicerelatBranchList-query',
+  templateUrl:'./devicerelatBranchList.html'
 })
-export class DiscountcouponQuery implements OnInit {
+export class DevicerelatBranchList implements OnInit {
 
   public rows:Array<any> = [];
 
@@ -27,24 +28,26 @@ export class DiscountcouponQuery implements OnInit {
 
   public searchForm:FormGroup;
 
-  public discountsMoney:AbstractControl;
- // public status:AbstractControl;
+  public name:AbstractControl;
+  public address:AbstractControl;
+  public curId:AbstractControl;
 
 
- // public categoryList:Array<any>;
+  //public categoryList:Array<any>;
 
 
-  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private discountcouponService:DiscountcouponService,private _dateParser:NgbDateParserFormatter) {
+  public constructor(fb:FormBuilder, private router:Router,private acRoute:ActivatedRoute, private branchService:BranchService,private devicerelatService:DevicerelatService,private _dateParser:NgbDateParserFormatter) {
 
     this.searchForm = fb.group({
-      'discountsMoney': [''],
-     // 'status': [''],
+      'name': [''],
+      'address': [''],
     });
 
+    //直接获取参数
+    this.curId = this.acRoute.snapshot.queryParams["paramId"];
 
-
-    this.discountsMoney = this.searchForm.controls['discountsMoney'];
-    //this.status = this.searchForm.controls['status'];
+    this.name = this.searchForm.controls['name'];
+    this.address = this.searchForm.controls['address'];
 
 
   }
@@ -56,13 +59,10 @@ export class DiscountcouponQuery implements OnInit {
 
   public loadData() {
     let requestParam = new URLSearchParams();
-    // requestParam.set('adsPos.id', this.category.value);
-    // requestParam.set('status', this.status.value);
-
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
 
-    this.discountcouponService.pageQuery(requestParam)
+    this.branchService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -78,15 +78,14 @@ export class DiscountcouponQuery implements OnInit {
 
     let requestParam = new URLSearchParams();
 
-    requestParam.set('discountsMoney',  values['discountsMoney']);
-    console.log("buyao1"+values['discountsMoney']);
-    //requestParam.set('status', values['status']);
+    requestParam.set('name',  values['name']);
+    requestParam.set('address', values['address']);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
     console.log(requestParam.toString());
 
-    this.discountcouponService.pageQuery(requestParam)
+    this.branchService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -102,7 +101,7 @@ export class DiscountcouponQuery implements OnInit {
 
     let requestParam = new URLSearchParams();
     requestParam.set('id', curId);
-    this.discountcouponService.delete(requestParam)
+    this.branchService.delete(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.loadData();
@@ -117,7 +116,7 @@ export class DiscountcouponQuery implements OnInit {
 
   public toAdd() {
 
-    this.router.navigate(['/pages/lapromotion/discountcouponAdd'], {
+    this.router.navigate(['/pages/labranch/branchAdd'], {
       queryParams: {
         paramId: ''
       }
@@ -127,7 +126,7 @@ export class DiscountcouponQuery implements OnInit {
 
   public toEdit(curId) {
     if (curId) {
-      this.router.navigate(['/pages/lapromotion/discountcouponEdit'], {
+      this.router.navigate(['/pages/labranch/branchAdd'], {
         queryParams: {
           paramId: curId
         }
@@ -136,11 +135,26 @@ export class DiscountcouponQuery implements OnInit {
   }
 
   public toView(curId) {
-    console.log(curId+"==============")
-    this.router.navigate(['/pages/lapromotion/discountcouponView'], {queryParams: {paramId: curId}});
-    console.log(curId+"--------------");
+    this.router.navigate(['/pages/labranch/branchView'], {queryParams: {paramId: curId}});
   }
 
+  public bind(branchId) {
+    let requestParam = new URLSearchParams();
+    requestParam.set('id', this.curId+'');
+    requestParam.set('branchId',branchId);
+    this.devicerelatService.bind(requestParam)
+      .subscribe(res => {
+        if (res.successed === '00') {
+          this.router.navigate(['/pages/labranch/devicerelat']);
+        } else {
+          alert(res.message);
+        }
+      });
+  }
+
+  public toBack(){
+    this.router.navigate(['/pages/labranch/devicerelat']);
+  }
 
   setPage(event){
 

@@ -51,22 +51,11 @@ export class BranchQuery implements OnInit {
 
   public ngOnInit():void {
 
-    // this.consumorderService.findAll().subscribe(res =>{
-    //   if(res.successed === '00'){
-    //     this.categoryList = res.data;
-    //   }else {
-    //     console.log(res.message);
-    //   }
-    // });
-  console.log("============")
     this.loadData();
   }
 
   public loadData() {
     let requestParam = new URLSearchParams();
-    // requestParam.set('adsPos.id', this.category.value);
-    // requestParam.set('status', this.status.value);
-
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
 
@@ -109,8 +98,6 @@ export class BranchQuery implements OnInit {
 
     let requestParam = new URLSearchParams();
     requestParam.set('id', curId);
-    console.log('sdp'+curId);
-    console.log(requestParam);
     this.branchService.delete(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
@@ -135,7 +122,6 @@ export class BranchQuery implements OnInit {
 
 
   public toEdit(curId) {
-    console.log("123");
     if (curId) {
       this.router.navigate(['/pages/labranch/branchAdd'], {
         queryParams: {
@@ -146,9 +132,7 @@ export class BranchQuery implements OnInit {
   }
 
   public toView(curId) {
-    console.log(curId+"==============")
     this.router.navigate(['/pages/labranch/branchView'], {queryParams: {paramId: curId}});
-    console.log(curId+"--------------");
   }
 
 

@@ -49,7 +49,6 @@ export class OrdinaryList implements OnInit {
     //直接获取参数
     this.branchId = this.acRoute.snapshot.queryParams["paramId"];
 
-    console.log("list branchId==" + this.branchId);
   }
 
   public ngOnInit():void {

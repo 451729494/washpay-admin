@@ -56,10 +56,8 @@ export class MyBranch implements OnInit {
   }
 
   public loadData() {
-    // requestParam.set('adsPos.id', this.category.value);
     this.curUserId = JSON.parse(localStorage.getItem(Keys.KEY_USER)).user_id;
     let requestParam = new URLSearchParams();
-    // requestParam.set('status', this.status.value);
 
     requestParam.set('userId',this.curUserId+'');
     requestParam.set('page', this.pageNav.page + '');
@@ -88,7 +86,7 @@ export class MyBranch implements OnInit {
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
     console.log(requestParam.toString());
 
-    this.branchService.pageQuery(requestParam)
+    this.branchService.pageQueryByUserId(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -128,7 +126,6 @@ export class MyBranch implements OnInit {
 
 
   public toEdit(curId) {
-    console.log("123");
     if (curId) {
       this.router.navigate(['/pages/labranch/branchAdd'], {
         queryParams: {
@@ -139,9 +136,7 @@ export class MyBranch implements OnInit {
   }
 
   public toView(curId) {
-    console.log(curId+"==============")
     this.router.navigate(['/pages/labranch/branchView'], {queryParams: {paramId: curId}});
-    console.log(curId+"--------------");
   }
 
 

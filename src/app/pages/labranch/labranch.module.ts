@@ -19,7 +19,10 @@ import {BindedCommercial} from "./components/branchrelatcom/bindedcommercial.com
 import {EntityListModule} from "../custom/entity-list-modal/entity-list.module";
 import {EntityListComponent} from "../custom/entity-list-modal/entity-list.component";
 import {MyBranch} from "./components/mybranch/mybranch.component";
-
+import {CommBranch} from "./components/commbranch/commbranch.component";
+import {DevicerelatQuery} from "./components/devicerelat/devicerelat.component";
+import {DevicerelatEdit} from "./components/devicerelat/devicerelatEdit.component";
+import {DevicerelatBranchList} from "./components/devicerelat/devicerelatBranchList.component";
 
 
 @NgModule({
@@ -47,7 +50,11 @@ import {MyBranch} from "./components/mybranch/mybranch.component";
     OrdinaryList,
     BranchBindCom,
     BindedCommercial,
-    MyBranch
+    MyBranch,
+    CommBranch,
+    DevicerelatQuery,
+    DevicerelatEdit,
+    DevicerelatBranchList
   ],entryComponents:[EntityListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

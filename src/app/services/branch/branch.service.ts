@@ -63,4 +63,9 @@ export class BranchService {
       .map(res => res.json());
   }
 
+  public pageQueryComByUserId(params:any):Observable<any> {
+    return this.http.get(Keys.SERVER_URL + '/branch/pageQueryComByUserId', {'search': params, 'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
+
 }

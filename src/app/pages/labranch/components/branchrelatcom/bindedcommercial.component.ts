@@ -53,19 +53,10 @@ export class BindedCommercial implements OnInit {
 
   public ngOnInit():void {
 
-    // this.consumorderService.findAll().subscribe(res =>{
-    //   if(res.successed === '00'){
-    //     this.categoryList = res.data;
-    //   }else {
-    //     console.log(res.message);
-    //   }
-    // });
-  console.log("============1")
     this.loadData();
   }
 
   public loadData() {
-    console.log("yxb");
     let requestParam = new URLSearchParams();
     // requestParam.set('adsPos.id', this.category.value);
     requestParam.set('branchId', this.branchId);
@@ -140,7 +131,6 @@ export class BindedCommercial implements OnInit {
 
 
   public toEdit(curId) {
-    console.log("123");
     if (curId) {
       this.router.navigate(['/pages/lacom/commercialAdd'], {
         queryParams: {

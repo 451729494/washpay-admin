@@ -51,14 +51,6 @@ export class BranchBindCom implements OnInit {
 
   public ngOnInit():void {
 
-    // this.consumorderService.findAll().subscribe(res =>{
-    //   if(res.successed === '00'){
-    //     this.categoryList = res.data;
-    //   }else {
-    //     console.log(res.message);
-    //   }
-    // });
-  console.log("============")
     this.loadData();
   }
 
@@ -135,7 +127,6 @@ export class BranchBindCom implements OnInit {
 
 
   public toEdit(curId) {
-    console.log("123");
     if (curId) {
       this.router.navigate(['/pages/labranch/branchAdd'], {
         queryParams: {

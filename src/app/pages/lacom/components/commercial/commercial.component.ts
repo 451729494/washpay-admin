@@ -51,19 +51,10 @@ export class CommercialQuery implements OnInit {
 
   public ngOnInit():void {
 
-    // this.consumorderService.findAll().subscribe(res =>{
-    //   if(res.successed === '00'){
-    //     this.categoryList = res.data;
-    //   }else {
-    //     console.log(res.message);
-    //   }
-    // });
-  console.log("============")
     this.loadData();
   }
 
   public loadData() {
-    console.log("yxb");
     let requestParam = new URLSearchParams();
     // requestParam.set('adsPos.id', this.category.value);
     // requestParam.set('status', this.status.value);
@@ -136,7 +127,6 @@ export class CommercialQuery implements OnInit {
 
 
   public toEdit(curId) {
-    console.log("123");
     if (curId) {
       this.router.navigate(['/pages/lacom/commercialAdd'], {
         queryParams: {

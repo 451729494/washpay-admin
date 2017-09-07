@@ -104,7 +104,6 @@ export class OrdinaryEdit implements OnInit{
 
   public onSubmit(values:Object){
 
-    console.log("================")
     if(this.ordinaryForm.valid){
 
       let requestParam = {'id': this.curId,
