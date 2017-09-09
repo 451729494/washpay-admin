@@ -111,7 +111,7 @@ export class BranchAdd {
 
   public toBack(){
 
-    this.router.navigate(['/pages/lapromotion/branch']);
+    this.router.navigate(['/pages/labranch/branch']);
 
   }
 
