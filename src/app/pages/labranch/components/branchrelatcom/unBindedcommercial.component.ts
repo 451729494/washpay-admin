@@ -16,10 +16,10 @@ import {BranchService} from "../../../../services/branch/branch.service";
 
 
 @Component({
-  selector: 'la-bindedcommercial-query',
-  templateUrl:'./bindedcommercial.html'
+  selector: 'la-unbindedcommercial-query',
+  templateUrl:'./unbindedcommercial.html'
 })
-export class BindedCommercial implements OnInit {
+export class UnBindedCommercial implements OnInit {
 
   public rows:Array<any> = [];
 
@@ -48,29 +48,28 @@ export class BindedCommercial implements OnInit {
     this.name = this.searchForm.controls['name'];
     this.organizationCode = this.searchForm.controls['organizationCode'];
 
-
   }
 
   public ngOnInit():void {
 
+  console.log("============1")
     this.loadData();
   }
 
   public loadData() {
+    console.log("wlg");
     let requestParam = new URLSearchParams();
-    // requestParam.set('adsPos.id', this.category.value);
     requestParam.set('branchId', this.branchId);
-
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
 
     console.log(requestParam);
-    this.branchservice.find(requestParam)
+    this.branchservice.findUnBindCommercial(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
-          this.rows = res.data.commercialList;
-          console.log(this.rows);
-          this.pageNav.totalElements = this.rows.length;
+          this.rows = res.data;
+
+          this.pageNav.totalElements = res.totalElements;
           this.pageNav.totalPages = res.totalPages;
         } else {
           console.log(res.message);
@@ -118,8 +117,6 @@ export class BindedCommercial implements OnInit {
 
   }
 
-
-
   public toAdd() {
 
     this.router.navigate(['/pages/lacom/commercialAdd'], {
@@ -131,6 +128,7 @@ export class BindedCommercial implements OnInit {
 
 
   public toEdit(curId) {
+    console.log("123");
     if (curId) {
       this.router.navigate(['/pages/lacom/commercialAdd'], {
         queryParams: {
@@ -146,18 +144,13 @@ export class BindedCommercial implements OnInit {
     console.log(curId+"--------------");
   }
 
-
-  setPage(event){
-
-  }
-
-  public unBind(curId){
+  public bind(curId){
     let requestParam = new URLSearchParams();
     requestParam.set('comId',curId);
     requestParam.set('branchId', this.branchId);
     console.log(curId);
 
-    this.branchservice.unBindCommercial(requestParam)
+    this.branchservice.bindCommercial(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           // this.router.navigate(['/pages/labranch/branchrelatord']);
@@ -168,11 +161,8 @@ export class BindedCommercial implements OnInit {
       });
   }
 
-  public toAddCommercial() {
-    console.log(this.branchId+"==============");
-    console.log(this.branchId+"sdp");
-    this.router.navigate(['/pages/labranch/unbindedcommercial'], {queryParams: {paramId: this.branchId}});
-    console.log(this.branchId+"--------------");
+  setPage(event){
+
   }
 
 }

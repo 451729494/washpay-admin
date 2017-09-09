@@ -9,6 +9,7 @@ import {BranchBind} from "./components/branchrelatord/branchrelatord.component";
 import {OrdinaryList} from "./components/branchrelatord/ordinaryList.component";
 import {BranchBindCom} from "./components/branchrelatcom/branchrelatcom.component";
 import {BindedCommercial} from "./components/branchrelatcom/bindedcommercial.component";
+import {UnBindedCommercial} from "./components/branchrelatcom/unbindedcommercial.component";
 import {MyBranch} from "./components/mybranch/mybranch.component";
 import {CommBranch} from "./components/commbranch/commbranch.component";
 import {DevicerelatQuery} from "./components/devicerelat/devicerelat.component";
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: 'ordinarylist', component: OrdinaryList },
       { path: 'branchrelatcom', component: BranchBindCom },
       { path: 'bindedcommercial', component: BindedCommercial },
+      { path: 'unbindedcommercial', component: UnBindedCommercial },
       { path: 'mybranch', component: MyBranch },
       { path: 'commbranch', component: CommBranch },
       { path: 'devicerelat', component: DevicerelatQuery },

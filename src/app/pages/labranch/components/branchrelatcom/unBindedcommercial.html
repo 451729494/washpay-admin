@@ -3,11 +3,11 @@
     <div class="col-lg-12 col-sm-12 col-12">
       <ba-card>
 
-        <div class="row">
+        <!--<div class="row">
           <div class="offset-5">
             <button type="button" (click)="toAddCommercial()" class="btn btn-warning">新增商户绑定</button>
           </div>
-        </div>
+        </div>-->
 
       </ba-card>
     </div>
@@ -58,7 +58,7 @@
         <ngx-datatable-column name="操作" [width]="200" [flexGrow]="1" [flexGrow]="1" prop="id">
           <ng-template let-value="value" ngx-datatable-cell-template>
 
-            <button (click)="unBind(value)" class="btn btn-warning">解除绑定</button>
+            <button (click)="bind(value)" class="btn btn-warning">绑定</button>
             <!--<button (click)="toEdit(value)" class="btn btn-warning">编辑</button>
             <button (click)="toDelete(value)" class="btn btn-warning">删除</button>
             <button (click)="toView(value)" class="btn btn-warning">详情</button>-->

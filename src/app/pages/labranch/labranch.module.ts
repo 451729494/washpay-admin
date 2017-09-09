@@ -16,6 +16,7 @@ import {BranchBind} from "./components/branchrelatord/branchrelatord.component";
 import {OrdinaryList} from "./components/branchrelatord/ordinaryList.component";
 import {BranchBindCom} from "./components/branchrelatcom/branchrelatcom.component";
 import {BindedCommercial} from "./components/branchrelatcom/bindedcommercial.component";
+import {UnBindedCommercial} from "./components/branchrelatcom/unbindedcommercial.component";
 import {EntityListModule} from "../custom/entity-list-modal/entity-list.module";
 import {EntityListComponent} from "../custom/entity-list-modal/entity-list.component";
 import {MyBranch} from "./components/mybranch/mybranch.component";
@@ -50,6 +51,7 @@ import {DevicerelatBranchList} from "./components/devicerelat/devicerelatBranchL
     OrdinaryList,
     BranchBindCom,
     BindedCommercial,
+    UnBindedCommercial,
     MyBranch,
     CommBranch,
     DevicerelatQuery,

@@ -68,4 +68,19 @@ export class BranchService {
       .map(res => res.json());
   }
 
+  public findUnBindCommercial(params:any):Observable<any>{
+    return this.http.get(Keys.SERVER_URL+'/branch/findUnBindCommercial', { 'search': params,'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
+
+  public bindCommercial(params:any):Observable<any>{
+    return this.http.get(Keys.SERVER_URL+'/branch/bindCommercial', { 'search': params,'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
+
+  public unBindCommercial(params:any):Observable<any>{
+    return this.http.get(Keys.SERVER_URL+'/branch/unBindCommercial', { 'search': params,'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
+
 }
