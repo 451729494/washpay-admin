@@ -81,6 +81,7 @@ import {CommercialService} from "./services/commercial/commercial.service";
 import {OrdinaryService} from "./services/ordinary/ordinary.service";
 import {DevicerelatService} from "./services/branch/devicerelat.service";
 import {SplitbillService} from "./services/splitbill/splitbill.service";
+import {ChargeorderrepotService} from "./services/report/chargeorderrepot.service";
 import {SplitBranchQuery} from "./pages/lasplit/components/splitbranch.component";
 // Application wide providers
 const APP_PROVIDERS = [
@@ -151,6 +152,7 @@ const APP_PROVIDERS = [
   OrdinaryService,
   DevicerelatService,
   SplitbillService,
+  ChargeorderrepotService,
   SplitBranchQuery
 ];
 

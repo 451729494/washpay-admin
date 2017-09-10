@@ -6,17 +6,9 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="idname">网点名称</label>
+                <label for="idname">时间</label>
                 <div class="input-group">
                   <input type="text" [formControl]="name" class="form-control" id="idname">
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="idaddress" class=" control-label">位置</label>
-                <div class="input-group">
-                  <input type="text" [formControl]="address" class="form-control" id="idaddress">
                 </div>
               </div>
             </div>
@@ -25,7 +17,6 @@
 
         <div class="row">
           <div class="offset-5">
-            <!--<button type="button" (click)="toAdd()" class="btn btn-warning">增加</button>-->
             <button type="button" (click)="onSubmit(searchForm.value)" class="btn btn-warning">查询</button>
           </div>
         </div>
@@ -52,36 +43,46 @@
         (page)='setPage($event)'
         [scrollbarH]="true">
         <ngx-datatable-column
-          name="网点id" [width]="30" prop="id">
+          name="日期"
+          [width]="50"
+          prop="dayStr">
         </ngx-datatable-column>
         <ngx-datatable-column
-          name="网点名称"
-          [width]="300"
-          prop="name">
+          name="充值订单总数"
+          [width]="50"
+          prop="totalCount">
         </ngx-datatable-column>
         <ngx-datatable-column
-          name="位置"
+          name="充值成功订单数"
+          [width]="50"
+          prop="totalSuccCount">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="充值失败订单数"
+          [width]="50"
+          prop="totalSuccCount">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="充值成功金额"
+          [width]="100"
+          prop="totalAmt">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="充值失败金额"
+          [width]="100"
+          prop="totalFailAmt">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="统计时间"
           [width]="200"
-          prop="address">
-        </ngx-datatable-column>
-        <ngx-datatable-column
-          name="管理员名称"
-          [width]="200"
-          prop="ordinaryAdmin.companyName">
-        </ngx-datatable-column>
-        <ngx-datatable-column
-          name="绑定状态"
-          [width]="200"
-          prop="statusStr">
+          prop="createdDate">
         </ngx-datatable-column>
         <ngx-datatable-column name="操作" [width]="200" [flexGrow]="1" [flexGrow]="1" prop="id">
           <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-            <button *ngIf="row.statusStr == '已绑定'" (click)="toBind(value)" class="btn btn-warning">修改管理员</button>
-            <button *ngIf="row.statusStr == '已绑定'" (click)="unBind(value)" class="btn btn-danger">解绑管理员</button>
-            <button *ngIf="row.statusStr == '未绑定'" (click)="toBind(value)" class="btn btn-info">绑定管理员</button>
-
+            <button (click)="toView(row.dayStr)" class="btn btn-warning">详情</button>
           </ng-template>
         </ngx-datatable-column>
+
       </ngx-datatable>
 
     </div>
