@@ -21,6 +21,10 @@ export class OrdinaryService {
     return this.http.get(Keys.SERVER_URL+'/ordinaryAdmin/pageQuery',{'search': params,'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
+  public pageQueryNotBindBranchId(params:any):Observable<any>{
+    return this.http.get(Keys.SERVER_URL+'/ordinaryAdmin/pageQueryNotBindBranchId',{'search': params,'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
 
   public find(params:any):Observable<any>{
     return this.http.get(Keys.SERVER_URL+'/ordinaryAdmin/find',{'search': params,'headers': this._authService.getHeadersAuth()})

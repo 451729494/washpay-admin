@@ -10,16 +10,18 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {Response,Headers, Http,URLSearchParams,RequestOptionsArgs} from "@angular/http";
 import { NgbModal,NgbDateStruct,NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 
-import { Keys } from '../../../../services/models/env';
-import {PageDataModel} from "../../../../services/models/page.model";
-import {CommercialService} from "../../../../services/commercial/commercial.service";
+import { Keys } from '../../../services/models/env';
+import {PageDataModel} from "../../../services/models/page.model";
+import {CommercialService} from "../../../services/commercial/commercial.service";
+import {BranchService} from "../../../services/branch/branch.service";
+import {SplitbillService} from "../../../services/splitbill/splitbill.service";
 
 
 @Component({
-  selector: 'la-commercial-query',
-  templateUrl:'./commercial.html'
+  selector: 'la-splitcommercial-query',
+  templateUrl:'./splitCommAdd.html'
 })
-export class CommercialQuery implements OnInit {
+export class SplitCommercialQuery implements OnInit {
 
   public rows:Array<any> = [];
 
@@ -30,11 +32,10 @@ export class CommercialQuery implements OnInit {
   public name:AbstractControl;
   public organizationCode:AbstractControl;
 
+  public branchId = '';
 
-  //public categoryList:Array<any>;
 
-
-  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private commercialService:CommercialService,private _dateParser:NgbDateParserFormatter) {
+  public constructor(fb:FormBuilder, private router:Router,private acRoute:ActivatedRoute, private commercialService:CommercialService,private splitbillService:SplitbillService,private branchService:BranchService,private _dateParser:NgbDateParserFormatter) {
 
     this.searchForm = fb.group({
       'name': [''],
@@ -46,6 +47,9 @@ export class CommercialQuery implements OnInit {
     this.name = this.searchForm.controls['name'];
     this.organizationCode = this.searchForm.controls['organizationCode'];
 
+    //直接获取参数
+    this.branchId = this.acRoute.snapshot.queryParams["paramId"];
+
 
   }
 
@@ -56,13 +60,12 @@ export class CommercialQuery implements OnInit {
 
   public loadData() {
     let requestParam = new URLSearchParams();
-    // requestParam.set('adsPos.id', this.category.value);
-    // requestParam.set('status', this.status.value);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
+    requestParam.set('branchId',this.branchId+'');
 
-    this.commercialService.pageQuery(requestParam)
+    this.commercialService.pageQueryNotBindBranchId(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -80,12 +83,13 @@ export class CommercialQuery implements OnInit {
 
     requestParam.set('name',  values['name']);
     requestParam.set('organizationCode', values['organizationCode']);
+    requestParam.set('branchId',this.branchId+'');
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
     console.log(requestParam.toString());
 
-    this.commercialService.pageQuery(requestParam)
+    this.commercialService.pageQueryNotBindBranchId(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -97,13 +101,13 @@ export class CommercialQuery implements OnInit {
       });
   }
 
-  public toDelete(curId) {
+  public addComm(curId) {
 
     let requestParam = new URLSearchParams();
-    requestParam.set('id', curId);
-    console.log('sdp'+curId);
-    console.log(requestParam);
-    this.commercialService.delete(requestParam)
+    requestParam.set('commId', curId);
+    requestParam.set('branchId', this.branchId+'');
+
+    this.splitbillService.addCommcial(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.loadData();
@@ -112,33 +116,15 @@ export class CommercialQuery implements OnInit {
         }
       });
 
+
   }
 
+  public toBack(){
 
+    this.router.navigate(['/pages/lasplit/splitbranch'], {queryParams: {paramId: this.branchId}});
 
-  public toAdd() {
-
-    this.router.navigate(['/pages/lacom/commercialAdd'], {
-      queryParams: {
-        paramId: ''
-      }
-    });
   }
 
-
-  public toEdit(curId) {
-    if (curId) {
-      this.router.navigate(['/pages/lacom/commercialAdd'], {
-        queryParams: {
-          paramId: curId
-        }
-      });
-    }
-  }
-
-  public toView(curId) {
-    this.router.navigate(['/pages/lacom/commercialView'], {queryParams: {paramId: curId}});
-  }
 
 
   setPage(event){

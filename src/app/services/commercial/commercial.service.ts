@@ -22,6 +22,11 @@ export class CommercialService {
       .map(res => res.json());
   }
 
+  public pageQueryNotBindBranchId(params:any):Observable<any> {
+    return this.http.get(Keys.SERVER_URL + '/commercial/pageQueryNotBindBranchId', {'search': params, 'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
+
   public find(params:any):Observable<any> {
     return this.http.get(Keys.SERVER_URL + '/commercial/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());

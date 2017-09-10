@@ -10,17 +10,16 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {Response,Headers, Http,URLSearchParams,RequestOptionsArgs} from "@angular/http";
 import { NgbModal,NgbDateStruct,NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 
-import { Keys } from '../../../../services/models/env';
-import {PageDataModel} from "../../../../services/models/page.model";
-import {EmployeeService} from "../../../../services/corp/employee.service";
-import { BranchService } from "../../../../services/branch/branch.service";
+import { Keys } from '../../../services/models/env';
+import {PageDataModel} from "../../../services/models/page.model";
+import {BranchService} from "../../../services/branch/branch.service";
 
 
 @Component({
-  selector: 'la-employee-query',
-  templateUrl:'./employee.html'
+  selector: 'la-branch-query',
+  templateUrl:'./splitbranch.html'
 })
-export class EmployeeQuery implements OnInit {
+export class SplitBranchQuery implements OnInit {
 
   public rows:Array<any> = [];
 
@@ -28,35 +27,25 @@ export class EmployeeQuery implements OnInit {
 
   public searchForm:FormGroup;
 
-  public employName:AbstractControl;
-  public mobile:AbstractControl;
-  public branchId:AbstractControl;
+  public name:AbstractControl;
+  public address:AbstractControl;
 
 
-  public branchList:Array<any>;
+  //public categoryList:Array<any>;
 
 
-  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private employeeService:EmployeeService,private branchService:BranchService,private _dateParser:NgbDateParserFormatter) {
+  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private branchService:BranchService,private _dateParser:NgbDateParserFormatter) {
 
     this.searchForm = fb.group({
-      'employName': [''],
-      'mobile': [''],
-      'branchId':[''],
+      'name': [''],
+      'address': [''],
     });
 
 
 
-    this.employName = this.searchForm.controls['employName'];
-    this.mobile = this.searchForm.controls['mobile'];
-    this.branchId = this.searchForm.controls['branchId']
+    this.name = this.searchForm.controls['name'];
+    this.address = this.searchForm.controls['address'];
 
-    this.branchService.findAll().subscribe(res =>{
-      if(res.successed === '00'){
-        this.branchList = res.data;
-      }else {
-        console.log(res.message);
-      }
-    });
 
   }
 
@@ -67,13 +56,10 @@ export class EmployeeQuery implements OnInit {
 
   public loadData() {
     let requestParam = new URLSearchParams();
-    requestParam.set('employName', this.employName.value);
-    requestParam.set('mobile', this.mobile.value);
-
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
 
-    this.employeeService.pageQuery(requestParam)
+    this.branchService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -89,15 +75,14 @@ export class EmployeeQuery implements OnInit {
 
     let requestParam = new URLSearchParams();
 
-    requestParam.set('employName',  values['employName']);
-    requestParam.set('mobile', values['mobile']);
-    requestParam.set('branchId',values['branchId']);
+    requestParam.set('name',  values['name']);
+    requestParam.set('address', values['address']);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
     console.log(requestParam.toString());
 
-    this.employeeService.pageQuery(requestParam)
+    this.branchService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -110,9 +95,10 @@ export class EmployeeQuery implements OnInit {
   }
 
   public toDelete(curId) {
+
     let requestParam = new URLSearchParams();
     requestParam.set('id', curId);
-    this.employeeService.delete(requestParam)
+    this.branchService.delete(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.loadData();
@@ -125,18 +111,31 @@ export class EmployeeQuery implements OnInit {
 
 
 
-  public toView(curId) {
-    this.router.navigate(['/pages/lacom/employeeview'], {queryParams: {paramId: curId}});
+  public toAdd() {
+
+    this.router.navigate(['/pages/labranch/branchAdd'], {
+      queryParams: {
+        paramId: ''
+      }
+    });
   }
+
 
   public toEdit(curId) {
-
-    this.router.navigate(['/pages/lacom/employeeedit'], {queryParams: {paramId: curId}});
+    if (curId) {
+      this.router.navigate(['/pages/labranch/branchAdd'], {
+        queryParams: {
+          paramId: curId
+        }
+      });
+    }
   }
 
-  public toAdd() {
-    this.router.navigate(['/pages/lacom/employeeedit'], {queryParams: {paramId: ''}});
+  public toView(curId) {
+    this.router.navigate(['/pages/lasplit/splitbranch'], {queryParams: {paramId: curId}});
   }
+
+
   setPage(event){
 
   }

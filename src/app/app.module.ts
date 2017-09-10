@@ -80,7 +80,8 @@ import {ManagerService} from "./services/corp/manager.service";
 import {CommercialService} from "./services/commercial/commercial.service";
 import {OrdinaryService} from "./services/ordinary/ordinary.service";
 import {DevicerelatService} from "./services/branch/devicerelat.service";
-
+import {SplitbillService} from "./services/splitbill/splitbill.service";
+import {SplitBranchQuery} from "./pages/lasplit/components/splitbranch.component";
 // Application wide providers
 const APP_PROVIDERS = [
   AppState,
@@ -148,7 +149,9 @@ const APP_PROVIDERS = [
   ManagerService,
   CommercialService,
   OrdinaryService,
-  DevicerelatService
+  DevicerelatService,
+  SplitbillService,
+  SplitBranchQuery
 ];
 
 export type StoreType = {

@@ -1,0 +1,25 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">{{modalHeader}}</h4>
+    <button class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group has-warning" >
+          <label class="control-label" for="inputWarning1"></label>
+          <input style="color: #1C2B36" maxlength="3" minlength="1" [(ngModel)]="this.rate" type="text" class="form-control" placeholder="0-100" id="inputWarning1">
+        </div>
+      </div>
+    </div>
+    <div class="row" >
+      {{message}}
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary confirm-btn" (click)="update()">确定</button>
+    <button class="btn btn-primary confirm-btn" (click)="closeModal()">关闭</button>
+  </div>
+</div>

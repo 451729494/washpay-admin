@@ -10,17 +10,17 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {Response,Headers, Http,URLSearchParams,RequestOptionsArgs} from "@angular/http";
 import { NgbModal,NgbDateStruct,NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 
-import { Keys } from '../../../../services/models/env';
-import {PageDataModel} from "../../../../services/models/page.model";
-import {EmployeeService} from "../../../../services/corp/employee.service";
-import { BranchService } from "../../../../services/branch/branch.service";
+import { Keys } from '../../../services/models/env';
+import {PageDataModel} from "../../../services/models/page.model";
+import {OrdinaryService} from "../../../services/ordinary/ordinary.service";
 
+import {SplitbillService} from "../../../services/splitbill/splitbill.service";
 
 @Component({
-  selector: 'la-employee-query',
-  templateUrl:'./employee.html'
+  selector: 'la-splitmanager-query',
+  templateUrl:'./splitManagerAdd.html'
 })
-export class EmployeeQuery implements OnInit {
+export class SplitManagerQuery implements OnInit {
 
   public rows:Array<any> = [];
 
@@ -28,35 +28,30 @@ export class EmployeeQuery implements OnInit {
 
   public searchForm:FormGroup;
 
-  public employName:AbstractControl;
+  public name:AbstractControl;
   public mobile:AbstractControl;
-  public branchId:AbstractControl;
+  public email:AbstractControl;
+  public branchId = '';
 
 
-  public branchList:Array<any>;
 
-
-  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private employeeService:EmployeeService,private branchService:BranchService,private _dateParser:NgbDateParserFormatter) {
+  public constructor(fb:FormBuilder, private router:Router,private acRoute:ActivatedRoute, private ordinaryService:OrdinaryService,private  splitbillService:SplitbillService,private _dateParser:NgbDateParserFormatter) {
 
     this.searchForm = fb.group({
-      'employName': [''],
+      'name': [''],
       'mobile': [''],
-      'branchId':[''],
+      'email': ['']
     });
 
 
 
-    this.employName = this.searchForm.controls['employName'];
+    this.name = this.searchForm.controls['name'];
     this.mobile = this.searchForm.controls['mobile'];
-    this.branchId = this.searchForm.controls['branchId']
+    this.email = this.searchForm.controls['email'];
 
-    this.branchService.findAll().subscribe(res =>{
-      if(res.successed === '00'){
-        this.branchList = res.data;
-      }else {
-        console.log(res.message);
-      }
-    });
+    //直接获取参数
+    this.branchId = this.acRoute.snapshot.queryParams["paramId"];
+
 
   }
 
@@ -67,13 +62,15 @@ export class EmployeeQuery implements OnInit {
 
   public loadData() {
     let requestParam = new URLSearchParams();
-    requestParam.set('employName', this.employName.value);
+    requestParam.set('name', this.name.value);
     requestParam.set('mobile', this.mobile.value);
+    requestParam.set('email', this.email.value);
+    requestParam.set('branchId',this.branchId);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
 
-    this.employeeService.pageQuery(requestParam)
+    this.ordinaryService.pageQueryNotBindBranchId(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -89,15 +86,16 @@ export class EmployeeQuery implements OnInit {
 
     let requestParam = new URLSearchParams();
 
-    requestParam.set('employName',  values['employName']);
+    requestParam.set('name',  values['name']);
     requestParam.set('mobile', values['mobile']);
-    requestParam.set('branchId',values['branchId']);
+    requestParam.set('email', values['email']);
 
+    requestParam.set('branchId',this.branchId);
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
     console.log(requestParam.toString());
 
-    this.employeeService.pageQuery(requestParam)
+    this.ordinaryService.pageQueryNotBindBranchId(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -109,10 +107,19 @@ export class EmployeeQuery implements OnInit {
       });
   }
 
-  public toDelete(curId) {
+  public toBack(){
+
+    this.router.navigate(['/pages/lasplit/splitbranch'], {queryParams: {paramId: this.branchId}});
+
+  }
+  public addManager(curId) {
+
     let requestParam = new URLSearchParams();
-    requestParam.set('id', curId);
-    this.employeeService.delete(requestParam)
+    requestParam.set('managerId', curId);
+    requestParam.set('branchId', this.branchId+'');
+
+
+    this.splitbillService.addManager(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.loadData();
@@ -121,22 +128,9 @@ export class EmployeeQuery implements OnInit {
         }
       });
 
+
   }
 
-
-
-  public toView(curId) {
-    this.router.navigate(['/pages/lacom/employeeview'], {queryParams: {paramId: curId}});
-  }
-
-  public toEdit(curId) {
-
-    this.router.navigate(['/pages/lacom/employeeedit'], {queryParams: {paramId: curId}});
-  }
-
-  public toAdd() {
-    this.router.navigate(['/pages/lacom/employeeedit'], {queryParams: {paramId: ''}});
-  }
   setPage(event){
 
   }
