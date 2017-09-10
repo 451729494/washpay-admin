@@ -1,0 +1,107 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card>
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)" class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idname">管理员姓名</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="name" class="form-control" id="idname">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idmobile">手机号码</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="mobile" class="form-control" id="idmobile">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idname">Email</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="email" class="form-control" id="idname">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+
+        <div class="row">
+          <div class="offset-5">
+            <button type="button" (click)="onSubmit(searchForm.value)" class="btn btn-primary">查询</button>
+            <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+          </div>
+        </div>
+
+      </ba-card>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+
+      <ngx-datatable
+        class="material"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [rows]="rows"
+        [externalPaging]="true"
+        [count]="pageNav.totalElements"
+        [offset]="pageNav.page"
+        [limit]="pageNav.itemsPerPage"
+        (page)='setPage($event)'
+        [scrollbarH]="true">
+        <ngx-datatable-column
+          name="id" [width]="30" prop="id">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="名称"
+          [width]="200"
+          prop="companyName">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="城市"
+          [width]="100"
+          prop="city">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="地址"
+          [width]="100"
+          prop="address">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="联系电话"
+          [width]="100"
+          prop="connectPhone">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="创建时间"
+          [width]="100"
+          prop="createdDate">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="操作" [width]="200" [flexGrow]="1" [flexGrow]="1" prop="id">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <button (click)="addManager(value)" class="btn btn-warning">选择</button>
+          </ng-template>
+        </ngx-datatable-column>
+
+      </ngx-datatable>
+
+    </div>
+  </div>
+
+
+</div>
+
+
