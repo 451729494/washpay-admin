@@ -22,6 +22,11 @@ export class ChargeorderService {
       .map(res => res.json());
   }
 
+  public pageQueryByDay(params:any):Observable<any> {
+    return this.http.get(Keys.SERVER_URL + '/chargeOrder/pageQueryByDay', {'search': params, 'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
+
   public find(params:any):Observable<any> {
     return this.http.get(Keys.SERVER_URL + '/chargeOrder/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());

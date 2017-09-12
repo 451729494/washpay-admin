@@ -34,7 +34,7 @@ export class DefaultModal implements OnInit {
 
   update(){
 
-    console.log(this.msg+''+"====="+this.rate+'')
+    console.log(this.msg+''+"====="+this.rate+'');
     let requestParam = new URLSearchParams();
     requestParam.set('id',this.msg+'');
     requestParam.set('rate',this.rate+'');
