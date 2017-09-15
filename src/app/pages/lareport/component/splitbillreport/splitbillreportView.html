@@ -1,0 +1,62 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+
+      <ngx-datatable
+        class="material"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [rows]="rows"
+        [externalPaging]="true"
+        [count]="pageNav.totalElements"
+        [offset]="pageNav.page"
+        [limit]="pageNav.itemsPerPage"
+        (page)='setPage($event)'
+        [scrollbarH]="true">
+        <ngx-datatable-column
+          name="id" [width]="30" prop="id">
+        </ngx-datatable-column>
+
+        <ngx-datatable-column
+          name="网点名称"
+          [width]="50"
+          prop="shopName">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="订单数量"
+          [width]="150"
+          prop="orderCount">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="订单金额"
+          [width]="100"
+          prop="orderPirce">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="统计时间"
+          [width]="100"
+          prop="createdDate">
+        </ngx-datatable-column>
+
+
+        <ngx-datatable-column name="操作" [width]="200" [flexGrow]="1" [flexGrow]="1" prop="id">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <button (click)="toView(value)" class="btn btn-success">详情</button>
+          </ng-template>
+        </ngx-datatable-column>
+
+      </ngx-datatable>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="offset-5">
+      <button type="button" (click)="toBack()" class="btn btn-warning">返回</button>
+    </div>
+  </div>
+
+</div>
+
+
