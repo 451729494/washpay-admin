@@ -25,6 +25,9 @@ export class SplitbillreportView implements OnInit{
 
   public curId = '';
 
+  public shopId='';
+  public createdDate='';
+
   public consumOrder:any;
 
 
@@ -32,6 +35,8 @@ export class SplitbillreportView implements OnInit{
 
     //直接获取参数
     this.curId = this.acRoute.snapshot.queryParams["paramId"];
+    this.shopId=this.acRoute.snapshot.queryParams["shopId"];
+    this.createdDate=this.acRoute.snapshot.queryParams["createdDate"];
     console.log(this.curId);
   }
 
@@ -50,11 +55,11 @@ export class SplitbillreportView implements OnInit{
 
   public loadData(){
 
-    console.log(this.curId+"day");
-
-    if(this.curId){
+    if(this.shopId){
+      console.log(this.shopId);
       let requestParam = new URLSearchParams();
-      requestParam.set('dayStr',this.curId);
+      requestParam.set('shopId',this.shopId);
+      requestParam.set('createdDate',this.createdDate);
 
       this.splitbillreportService.pageQuery(requestParam)
         .subscribe(res => {

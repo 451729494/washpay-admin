@@ -65,7 +65,7 @@
 
         <ngx-datatable-column name="操作" [width]="200" [flexGrow]="1" [flexGrow]="1" prop="id">
           <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-            <button (click)="toView(row)" class="btn btn-warning">详情</button>
+            <button (click)="toView(row.shopId,row.createdDate)" class="btn btn-warning">详情</button>
           </ng-template>
         </ngx-datatable-column>
 
