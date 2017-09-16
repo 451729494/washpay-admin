@@ -24,6 +24,10 @@ export class UserService {
     return this.http.get(Keys.SERVER_URL+'/secure/user/pageQuery',{'search':params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
+  pageQueryCustomer(params:any):Observable<any>{
+    return this.http.get(Keys.SERVER_URL+'/secure/user/pageQueryCustomer',{'search':params, 'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
 
   find(params:any):Observable<any> {
     return this.http.post(Keys.SERVER_URL + '/secure/user/find','', {'search': params,'headers': this._authService.getHeadersAuth()})

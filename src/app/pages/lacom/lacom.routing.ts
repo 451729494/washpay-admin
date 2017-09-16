@@ -40,6 +40,8 @@ import {CommercialQuery} from "./components/commercial/commercial.component";
 import {CommercialAdd} from "./components/commercial/commercialAdd.component";
 import {CommercialView} from "./components/commercial/commercialView.component";
 
+import {CustomQuery} from "./components/commonuser/commonuser.component";
+
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
   {
@@ -77,9 +79,8 @@ const routes: Routes = [
       { path: 'ordinaryview', component: OrdinaryView },
       { path: 'commercial', component: CommercialQuery },
       { path: 'commercialAdd', component: CommercialAdd },
-      { path: 'commercialView', component: CommercialView }
-
-
+      { path: 'commercialView', component: CommercialView },
+      { path: 'commonuser', component: CustomQuery }
 
     ]
   }

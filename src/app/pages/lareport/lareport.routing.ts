@@ -10,6 +10,8 @@ import {SplitbillreportQuery} from "./component/splitbillreport/splitbillreport.
 import {SplitbillreportView} from "./component/splitbillreport/splitbillreportView.component";
 import {WithdrawreportQuery} from "./component/withdrawreport/withdrawreport.component";
 import {WithdrawreportView} from "./component/withdrawreport/withdrawreportView.component";
+import {OrdinaryOrderreportQuery} from "./component/ordinaryorderreport/ordinaryorderreport.component";
+import {CommOrderreportQuery} from "./component/commorderreport/commorderreport.component";
 
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
@@ -24,7 +26,11 @@ const routes: Routes = [
       { path: 'splitbillreport', component: SplitbillreportQuery },
       { path: 'splitbillreportview', component: SplitbillreportView },
       { path: 'withdrawreport', component: WithdrawreportQuery },
-      { path: 'withdrawreportview', component: WithdrawreportView }
+      { path: 'withdrawreportview', component: WithdrawreportView },
+      { path: 'ordinaryorderreport', component: OrdinaryOrderreportQuery },
+      { path: 'commorderreport', component: CommOrderreportQuery }
+
+
     ]
   }
 ];

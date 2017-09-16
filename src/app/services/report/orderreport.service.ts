@@ -22,6 +22,16 @@ export class OrderreportService {
       .map(res => res.json());
   }
 
+  public pageQueryByOrdinary(params:any):Observable<any> {
+    return this.http.get(Keys.SERVER_URL + '/orderReport/pageQueryByOrdinary', {'search': params, 'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
+  public pageQueryByComm(params:any):Observable<any> {
+    return this.http.get(Keys.SERVER_URL + '/orderReport/pageQueryByComm', {'search': params, 'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
+
+
   public find(params:any):Observable<any> {
     return this.http.get(Keys.SERVER_URL + '/orderReport/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
@@ -37,5 +47,7 @@ export class OrderreportService {
     return this.http.post(Keys.SERVER_URL + '/orderReport/delete',params, {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
+
+
 
 }

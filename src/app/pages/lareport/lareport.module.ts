@@ -20,7 +20,8 @@ import {SplitbillreportQuery} from "./component/splitbillreport/splitbillreport.
 import {SplitbillreportView} from "./component/splitbillreport/splitbillreportView.component";
 import {WithdrawreportQuery} from "./component/withdrawreport/withdrawreport.component";
 import {WithdrawreportView} from "./component/withdrawreport/withdrawreportView.component";
-
+import {OrdinaryOrderreportQuery} from "./component/ordinaryorderreport/ordinaryorderreport.component";
+import {CommOrderreportQuery} from "./component/commorderreport/commorderreport.component";
 
 
 @NgModule({
@@ -48,7 +49,9 @@ import {WithdrawreportView} from "./component/withdrawreport/withdrawreportView.
     SplitbillreportQuery,
     SplitbillreportView,
     WithdrawreportQuery,
-    WithdrawreportView
+    WithdrawreportView,
+    OrdinaryOrderreportQuery,
+    CommOrderreportQuery
   ],entryComponents:[EntityListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

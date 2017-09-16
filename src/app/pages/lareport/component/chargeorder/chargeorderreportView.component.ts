@@ -70,6 +70,24 @@ export class ChargeorderrepotView implements OnInit{
   }
 
 
+  setPage(event){
+    let requestParam = new URLSearchParams();
+
+    requestParam.set('page', event.offset + 1);
+    requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
+    console.log(requestParam.toString());
+
+    this.chargeService.pageQueryByDay(requestParam)
+      .subscribe(res => {
+        if (res.successed === '00') {
+          this.rows = res.data;
+          this.pageNav.totalElements = res.totalElements;
+          this.pageNav.totalPages = res.totalPages;
+        } else {
+          console.log(res.message);
+        }
+      });
+  }
 
 
 }

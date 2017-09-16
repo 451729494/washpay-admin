@@ -58,6 +58,8 @@ import {CommercialQuery} from "./components/commercial/commercial.component";
 import {CommercialAdd} from "./components/commercial/commercialAdd.component";
 import {CommercialView} from "./components/commercial/commercialView.component";
 
+import {CustomQuery} from "./components/commonuser/commonuser.component";
+
 @NgModule({
   imports: [
     CommonModule,
@@ -110,7 +112,8 @@ import {CommercialView} from "./components/commercial/commercialView.component";
     CommercialAdd,
     CommercialQuery,
     CommercialAdd,
-    CommercialView
+    CommercialView,
+    CustomQuery
   ],entryComponents:[PhotoModalComponent,CorpManageListComponent,SysThirdListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
