@@ -24,7 +24,8 @@ import {CommBranch} from "./components/commbranch/commbranch.component";
 import {DevicerelatQuery} from "./components/devicerelat/devicerelat.component";
 import {DevicerelatEdit} from "./components/devicerelat/devicerelatEdit.component";
 import {DevicerelatBranchList} from "./components/devicerelat/devicerelatBranchList.component";
-
+import {WithdrawreportQuery} from "./component/withdrawreport/withdrawreport.component";
+import {WithdrawreportView} from "./component/withdrawreport/withdrawreportView.component";
 
 @NgModule({
   imports: [
@@ -56,7 +57,9 @@ import {DevicerelatBranchList} from "./components/devicerelat/devicerelatBranchL
     CommBranch,
     DevicerelatQuery,
     DevicerelatEdit,
-    DevicerelatBranchList
+    DevicerelatBranchList,
+    WithdrawreportQuery,
+    WithdrawreportView
   ],entryComponents:[EntityListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

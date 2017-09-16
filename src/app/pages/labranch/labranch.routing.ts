@@ -15,6 +15,8 @@ import {CommBranch} from "./components/commbranch/commbranch.component";
 import {DevicerelatQuery} from "./components/devicerelat/devicerelat.component";
 import {DevicerelatEdit} from "./components/devicerelat/devicerelatEdit.component";
 import {DevicerelatBranchList} from "./components/devicerelat/devicerelatBranchList.component";
+import {WithdrawreportQuery} from "./component/withdrawreport/withdrawreport.component";
+import {WithdrawreportView} from "./component/withdrawreport/withdrawreportView.component";
 
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
@@ -34,7 +36,9 @@ const routes: Routes = [
       { path: 'commbranch', component: CommBranch },
       { path: 'devicerelat', component: DevicerelatQuery },
       { path: 'devicerelatedit', component: DevicerelatEdit },
-      { path: 'devicerelatbranchlist', component: DevicerelatBranchList }
+      { path: 'devicerelatbranchlist', component: DevicerelatBranchList },
+      { path: 'withdrawreport', component: WithdrawreportQuery },
+      { path: 'withdrawreportview', component: WithdrawreportView }
 
 
     ]
