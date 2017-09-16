@@ -62,6 +62,7 @@ export class BranchAdd {
 
     if(this.curId) {
       let params = new URLSearchParams();
+      console.log(this.curId);
       params.set('id', this.curId + '');
       this.branchService.find(params).subscribe(res => {
         if (res.successed === '00') {
