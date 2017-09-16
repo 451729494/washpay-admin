@@ -137,7 +137,25 @@ export class BranchQuery implements OnInit {
 
 
   setPage(event){
+    let requestParam = new URLSearchParams();
 
+    requestParam.set('name', this.name.value);
+    requestParam.set('address', this.address.value);
+
+    requestParam.set('page', event.offset + 1);
+    requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
+    console.log(requestParam.toString());
+
+    this.branchService.pageQuery(requestParam)
+      .subscribe(res => {
+        if (res.successed === '00') {
+          this.rows = res.data;
+          this.pageNav.totalElements = res.totalElements;
+          this.pageNav.totalPages = res.totalPages;
+        } else {
+          console.log(res.message);
+        }
+      });
   }
 
 }

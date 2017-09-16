@@ -2,7 +2,32 @@
   <div class="row">
     <div class="col-lg-12 col-sm-12 col-12">
       <ba-card>
-
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)" class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idname">网点名称</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="name" class="form-control" id="idname">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idaddress" class=" control-label">位置</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="address" class="form-control" id="idaddress">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="offset-5">
+            <button type="button" (click)="toAdd()" class="btn btn-warning">增加</button>
+            <button type="button" (click)="onSubmit(searchForm.value)" class="btn btn-warning">查询</button>
+          </div>
+        </div>
       </ba-card>
     </div>
   </div>

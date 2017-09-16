@@ -59,7 +59,7 @@ export class BindedCommercial implements OnInit {
   public loadData() {
     let requestParam = new URLSearchParams();
     // requestParam.set('adsPos.id', this.category.value);
-    requestParam.set('branchId', this.branchId);
+    requestParam.set('id', this.branchId);
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
