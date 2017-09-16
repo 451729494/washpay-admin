@@ -1,0 +1,94 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+      <ba-card>
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)" class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idname">时间</label>
+                <div class="input-group">
+                  <input type="text" [formControl]="name" class="form-control" id="idname">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="row">
+          <div class="offset-5">
+            <button type="button" (click)="onSubmit(searchForm.value)" class="btn btn-warning">查询</button>
+          </div>
+        </div>
+
+      </ba-card>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12">
+
+      <ngx-datatable
+        class="material"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [rows]="rows"
+        [externalPaging]="true"
+        [count]="pageNav.totalElements"
+        [offset]="pageNav.page"
+        [limit]="pageNav.itemsPerPage"
+        (page)='setPage($event)'
+        [scrollbarH]="true">
+        <ngx-datatable-column
+          name="日期"
+          [width]="50"
+          prop="dayStr">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="充值订单总数"
+          [width]="50"
+          prop="totalCount">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="充值成功订单数"
+          [width]="50"
+          prop="totalSuccCount">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="充值失败订单数"
+          [width]="50"
+          prop="totalSuccCount">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="充值成功金额"
+          [width]="100"
+          prop="totalAmt">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="充值失败金额"
+          [width]="100"
+          prop="totalFailAmt">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="统计时间"
+          [width]="200"
+          prop="createdDate">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="操作" [width]="200" [flexGrow]="1" [flexGrow]="1" prop="id">
+          <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <button (click)="toView(row.dayStr)" class="btn btn-warning">详情</button>
+          </ng-template>
+        </ngx-datatable-column>
+
+      </ngx-datatable>
+
+    </div>
+  </div>
+
+
+</div>
+
+

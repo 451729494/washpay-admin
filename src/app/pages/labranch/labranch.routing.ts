@@ -16,6 +16,7 @@ import {DevicerelatQuery} from "./components/devicerelat/devicerelat.component";
 import {DevicerelatEdit} from "./components/devicerelat/devicerelatEdit.component";
 import {DevicerelatBranchList} from "./components/devicerelat/devicerelatBranchList.component";
 
+
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
   {
@@ -35,7 +36,6 @@ const routes: Routes = [
       { path: 'devicerelat', component: DevicerelatQuery },
       { path: 'devicerelatedit', component: DevicerelatEdit },
       { path: 'devicerelatbranchlist', component: DevicerelatBranchList }
-
 
     ]
   }

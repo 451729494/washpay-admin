@@ -57,6 +57,7 @@ import {DevicerelatBranchList} from "./components/devicerelat/devicerelatBranchL
     DevicerelatQuery,
     DevicerelatEdit,
     DevicerelatBranchList
+
   ],entryComponents:[EntityListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
