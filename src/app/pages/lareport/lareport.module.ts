@@ -18,6 +18,8 @@ import {OrderreportQuery} from "./component/orderreport/orderreport.component";
 import {OrderreportView} from "./component/orderreport/orderreportView.component";
 import {SplitbillreportQuery} from "./component/splitbillreport/splitbillreport.component";
 import {SplitbillreportView} from "./component/splitbillreport/splitbillreportView.component";
+import {WithdrawreportQuery} from "./component/withdrawreport/withdrawreport.component";
+import {WithdrawreportView} from "./component/withdrawreport/withdrawreportView.component";
 
 
 
@@ -44,7 +46,9 @@ import {SplitbillreportView} from "./component/splitbillreport/splitbillreportVi
     OrderreportQuery,
     OrderreportView,
     SplitbillreportQuery,
-    SplitbillreportView
+    SplitbillreportView,
+    WithdrawreportQuery,
+    WithdrawreportView
   ],entryComponents:[EntityListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
