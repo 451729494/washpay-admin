@@ -168,11 +168,12 @@ export class BindedCommercial implements OnInit {
       });
   }
 
+  public toBack(){
+    this.router.navigate(['/pages/labranch/branchrelatcom']);
+  }
+
   public toAddCommercial() {
-    console.log(this.branchId+"==============");
-    console.log(this.branchId+"sdp");
     this.router.navigate(['/pages/labranch/unbindedcommercial'], {queryParams: {paramId: this.branchId}});
-    console.log(this.branchId+"--------------");
   }
 
 }

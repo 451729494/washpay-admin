@@ -139,7 +139,7 @@ export class UnBindedCommercial implements OnInit {
   }
 
   public toView(curId) {
-    console.log(curId+"==============")
+    console.log(curId+"==============");
     this.router.navigate(['/pages/lacom/commercialView'], {queryParams: {paramId: curId}});
     console.log(curId+"--------------");
   }
@@ -159,6 +159,10 @@ export class UnBindedCommercial implements OnInit {
           alert(res.message);
         }
       });
+  }
+
+  public toBack(){
+    this.router.navigate(['/pages/lacomm/bindedcommercial'],{queryParams: {paramId: this.branchId}});
   }
 
   setPage(event){
