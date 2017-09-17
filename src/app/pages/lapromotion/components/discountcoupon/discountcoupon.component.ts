@@ -143,7 +143,24 @@ export class DiscountcouponQuery implements OnInit {
 
 
   setPage(event){
+    let requestParam = new URLSearchParams();
 
+    requestParam.set('discountsMoney', this.discountsMoney.value);
+
+    requestParam.set('page', event.offset + 1);
+    requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
+    console.log(requestParam.toString());
+
+    this.discountcouponService.pageQuery(requestParam)
+      .subscribe(res => {
+        if (res.successed === '00') {
+          this.rows = res.data;
+          this.pageNav.totalElements = res.totalElements;
+          this.pageNav.totalPages = res.totalPages;
+        } else {
+          console.log(res.message);
+        }
+      });
   }
 
 }

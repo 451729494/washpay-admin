@@ -25,20 +25,25 @@
         (page)='setPage($event)'
         [scrollbarH]="true">
         <ngx-datatable-column
+          name="日期"
+          [width]="50"
+          prop="statisticsDate">
+        </ngx-datatable-column>
+        <ngx-datatable-column
           name="ID"
           [width]="50"
           prop="id">
         </ngx-datatable-column>
         <ngx-datatable-column
-          name="网点ID"
+          name="商户ID"
           [width]="50"
-          prop="shopId">
+          prop="commercialId">
         </ngx-datatable-column>
 
         <ngx-datatable-column
-          name="网点名称"
+          name="商户名称"
           [width]="50"
-          prop="shopName">
+          prop="commercialName">
         </ngx-datatable-column>
         <ngx-datatable-column
           name="订单数量"
@@ -65,7 +70,7 @@
 
         <ngx-datatable-column name="操作" [width]="200" [flexGrow]="1" [flexGrow]="1" prop="id">
           <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-            <button (click)="toView(row.shopId,row.createdDate)" class="btn btn-warning">详情</button>
+            <button (click)="toView(row.commercialId,row.statisticsDate)" class="btn btn-warning">详情</button>
           </ng-template>
         </ngx-datatable-column>
 

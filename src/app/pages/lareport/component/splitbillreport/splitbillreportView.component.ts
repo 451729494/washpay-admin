@@ -25,8 +25,8 @@ export class SplitbillreportView implements OnInit{
 
   public curId = '';
 
-  public shopId='';
-  public createdDate='';
+  public commercialId='';
+  public statisticsDate='';
 
   public consumOrder:any;
 
@@ -35,8 +35,8 @@ export class SplitbillreportView implements OnInit{
 
     //直接获取参数
     this.curId = this.acRoute.snapshot.queryParams["paramId"];
-    this.shopId=this.acRoute.snapshot.queryParams["shopId"];
-    this.createdDate=this.acRoute.snapshot.queryParams["createdDate"];
+    this.commercialId=this.acRoute.snapshot.queryParams["commercialId"];
+    this.statisticsDate=this.acRoute.snapshot.queryParams["statisticsDate"];
     console.log(this.curId);
   }
 
@@ -50,18 +50,18 @@ export class SplitbillreportView implements OnInit{
   }
 
   public toBack():any {
-    this.router.navigate(['/pages/lareport/chargeorderreport']);
+    this.router.navigate(['/pages/lareport/splitbillreport']);
   }
 
   public loadData(){
-
-    if(this.shopId){
-      console.log(this.shopId);
+    console.log("csrd");
+    console.log(this.commercialId);
+    if(this.commercialId){
       let requestParam = new URLSearchParams();
-      requestParam.set('shopId',this.shopId);
-      requestParam.set('createdDate',this.createdDate);
+      requestParam.set('commercialId',this.commercialId);
+      requestParam.set('statisticsDate',this.statisticsDate);
 
-      this.splitbillreportService.pageQuery(requestParam)
+      this.splitbillreportService.pageQueryByCommercialId(requestParam)
         .subscribe(res => {
           if (res.successed === '00') {
             this.rows = res.data;

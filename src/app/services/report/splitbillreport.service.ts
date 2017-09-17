@@ -18,12 +18,12 @@ export class SplitbillreportService {
   }
 
   public pageQuery(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/commercialOrder/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/commercialOrderStatistics/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
-  public pageQueryByShopId(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/commercialOrderStatistics/pageQueryByShopId', {'search': params, 'headers': this._authService.getHeadersAuth()})
+  public pageQueryByCommercialId(params:any):Observable<any> {
+    return this.http.get(Keys.SERVER_URL + '/commercialOrder/pageQueryByCommercialId', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 

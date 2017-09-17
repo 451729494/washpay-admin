@@ -133,10 +133,8 @@ export class SplitbillreportQuery implements OnInit {
     }
   }
 
-  public toView(shopId,createdDate) {
-    console.log(shopId);
-    console.log(createdDate);
-    this.router.navigate(['/pages/lareport/splitbillreportview'], {queryParams: {paramId: shopId,paramDate: createdDate}});
+  public toView(commercialId,statisticsDate) {
+    this.router.navigate(['/pages/lareport/splitbillreportview'], {queryParams: {commercialId: commercialId,statisticsDate: statisticsDate}});
   }
 
 
