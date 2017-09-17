@@ -24,6 +24,8 @@ import {OrdinaryOrderreportQuery} from "./component/ordinaryorderreport/ordinary
 import {CommOrderreportQuery} from "./component/commorderreport/commorderreport.component";
 import {CommsplitQuery} from "./component/commsplitbill/commsplit.component";
 import {CommsplitDetail} from "./component/commsplitbill/commsplitDetail.component";
+import {OrdinarysplitbillreportQuery} from "./component/ordinarysplitbill/ordinarysplitbillreport.component";
+import {OrdinarysplitbillreportView} from "./component/ordinarysplitbill/ordinarysplitbillreportView.component";
 
 @NgModule({
   imports: [
@@ -54,7 +56,9 @@ import {CommsplitDetail} from "./component/commsplitbill/commsplitDetail.compone
     OrdinaryOrderreportQuery,
     CommOrderreportQuery,
     CommsplitQuery,
-    CommsplitDetail
+    CommsplitDetail,
+    OrdinarysplitbillreportQuery,
+    OrdinarysplitbillreportView
   ],entryComponents:[EntityListComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

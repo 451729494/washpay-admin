@@ -38,16 +38,22 @@ export class BranchAdd {
   public branchForm:FormGroup;
   public name:AbstractControl;
   public address:AbstractControl;
+  public longitude:AbstractControl;
+  public dimensionality:AbstractControl;
 
   public constructor(fb:FormBuilder, private route:ActivatedRoute, private router:Router,  private branchService:BranchService, private modalService: NgbModal, private authService:AuthService) {
 
     this.branchForm = fb.group({
       'name':['',Validators.compose([Validators.required])],
-      'address': ['',Validators.compose([Validators.required])]
+      'address': ['',Validators.compose([Validators.required])],
+      'longitude': ['',Validators.compose([Validators.required])],
+      'dimensionality': ['',Validators.compose([Validators.required])]
     });
 
     this.name = this.branchForm.controls['name'];
     this.address = this.branchForm.controls['address'];
+    this.longitude = this.branchForm.controls['longitude'];
+    this.dimensionality = this.branchForm.controls['dimensionality'];
 
     //直接获取参数
     this.curId = this.route.snapshot.queryParams["paramId"];
@@ -69,6 +75,8 @@ export class BranchAdd {
           if (res.data) {
             this.name.setValue(res.data.name);
             this.address.setValue(res.data.address)
+            this.longitude.setValue(res.data.longitude)
+            this.dimensionality.setValue(res.data.dimensionality)
           }
         } else {
           console.log(res.message);
@@ -89,7 +97,9 @@ export class BranchAdd {
       let body = {
         'id': this.curId,
         'name': values['name'],
-        'address': values['address']
+        'address': values['address'],
+        'longitude': values['longitude'],
+        'dimensionality': values['dimensionality'],
       };
 
       this.branchService.save(JSON.stringify(body)).subscribe(res=> {

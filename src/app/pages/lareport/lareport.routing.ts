@@ -14,6 +14,8 @@ import {OrdinaryOrderreportQuery} from "./component/ordinaryorderreport/ordinary
 import {CommOrderreportQuery} from "./component/commorderreport/commorderreport.component";
 import {CommsplitQuery} from "./component/commsplitbill/commsplit.component";
 import {CommsplitDetail} from "./component/commsplitbill/commsplitDetail.component";
+import {OrdinarysplitbillreportQuery} from "./component/ordinarysplitbill/ordinarysplitbillreport.component";
+import {OrdinarysplitbillreportView} from "./component/ordinarysplitbill/ordinarysplitbillreportView.component";
 
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
@@ -32,10 +34,9 @@ const routes: Routes = [
       { path: 'ordinaryorderreport', component: OrdinaryOrderreportQuery },
       { path: 'commorderreport', component: CommOrderreportQuery },
       { path: 'commsplit', component: CommsplitQuery },
-      { path: 'commsplitdetail', component: CommsplitDetail }
-
-
-
+      { path: 'commsplitdetail', component: CommsplitDetail },
+      { path: 'ordinarysplitbillreport', component: OrdinarysplitbillreportQuery },
+      { path: 'ordinarysplitbillreportview', component: OrdinarysplitbillreportView }
     ]
   }
 ];
