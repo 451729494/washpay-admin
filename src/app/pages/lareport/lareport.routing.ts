@@ -12,6 +12,8 @@ import {WithdrawreportQuery} from "./component/withdrawreport/withdrawreport.com
 import {WithdrawreportView} from "./component/withdrawreport/withdrawreportView.component";
 import {OrdinaryOrderreportQuery} from "./component/ordinaryorderreport/ordinaryorderreport.component";
 import {CommOrderreportQuery} from "./component/commorderreport/commorderreport.component";
+import {CommsplitQuery} from "./component/commsplitbill/commsplit.component";
+import {CommsplitDetail} from "./component/commsplitbill/commsplitDetail.component";
 
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
@@ -28,7 +30,10 @@ const routes: Routes = [
       { path: 'withdrawreport', component: WithdrawreportQuery },
       { path: 'withdrawreportview', component: WithdrawreportView },
       { path: 'ordinaryorderreport', component: OrdinaryOrderreportQuery },
-      { path: 'commorderreport', component: CommOrderreportQuery }
+      { path: 'commorderreport', component: CommOrderreportQuery },
+      { path: 'commsplit', component: CommsplitQuery },
+      { path: 'commsplitdetail', component: CommsplitDetail }
+
 
 
     ]

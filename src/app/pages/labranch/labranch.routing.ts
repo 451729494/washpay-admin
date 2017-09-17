@@ -15,6 +15,7 @@ import {CommBranch} from "./components/commbranch/commbranch.component";
 import {DevicerelatQuery} from "./components/devicerelat/devicerelat.component";
 import {DevicerelatEdit} from "./components/devicerelat/devicerelatEdit.component";
 import {DevicerelatBranchList} from "./components/devicerelat/devicerelatBranchList.component";
+import {DeviceQuery} from "./components/device/device.component";
 
 
 // noinspection TypeScriptValidateTypes
@@ -35,7 +36,8 @@ const routes: Routes = [
       { path: 'commbranch', component: CommBranch },
       { path: 'devicerelat', component: DevicerelatQuery },
       { path: 'devicerelatedit', component: DevicerelatEdit },
-      { path: 'devicerelatbranchlist', component: DevicerelatBranchList }
+      { path: 'devicerelatbranchlist', component: DevicerelatBranchList },
+      { path: 'device', component: DeviceQuery }
 
     ]
   }

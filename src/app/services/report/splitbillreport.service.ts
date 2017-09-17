@@ -21,6 +21,14 @@ export class SplitbillreportService {
     return this.http.get(Keys.SERVER_URL + '/commercialOrderStatistics/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
+  public pageQueryByOrdin(params:any):Observable<any> {
+    return this.http.get(Keys.SERVER_URL + '/commercialOrderStatistics/pageQueryByOrdin', {'search': params, 'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
+  public pageQueryByComm(params:any):Observable<any> {
+    return this.http.get(Keys.SERVER_URL + '/commercialOrderStatistics/pageQueryByComm', {'search': params, 'headers': this._authService.getHeadersAuth()})
+      .map(res => res.json());
+  }
 
   public pageQueryByCommercialId(params:any):Observable<any> {
     return this.http.get(Keys.SERVER_URL + '/commercialOrder/pageQueryByCommercialId', {'search': params, 'headers': this._authService.getHeadersAuth()})

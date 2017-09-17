@@ -12,14 +12,14 @@ import { NgbModal,NgbDateStruct,NgbDateParserFormatter} from '@ng-bootstrap/ng-b
 
 import { Keys } from '../../../../services/models/env';
 import {PageDataModel} from "../../../../services/models/page.model";
-import {BranchService} from "../../../../services/branch/branch.service";
-
+// import {BranchService} from "../../../../services/branch/branch.service";
+import {DeviceService} from "../../../../services/device/device.service";
 
 @Component({
-  selector: 'la-mybranch-query',
-  templateUrl:'./mybranch.html'
+  selector: 'la-device-query',
+  templateUrl:'./device.html'
 })
-export class MyBranch implements OnInit {
+export class DeviceQuery implements OnInit {
 
   public rows:Array<any> = [];
 
@@ -29,13 +29,12 @@ export class MyBranch implements OnInit {
 
   public name:AbstractControl;
   public address:AbstractControl;
-  private curUserId:AbstractControl;
 
 
   //public categoryList:Array<any>;
 
 
-  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private branchService:BranchService,private _dateParser:NgbDateParserFormatter) {
+  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private deviceService:DeviceService,private _dateParser:NgbDateParserFormatter) {
 
     this.searchForm = fb.group({
       'name': [''],
@@ -46,7 +45,7 @@ export class MyBranch implements OnInit {
 
     this.name = this.searchForm.controls['name'];
     this.address = this.searchForm.controls['address'];
-    this.curUserId = JSON.parse(localStorage.getItem(Keys.KEY_USER)).user_id;
+
 
   }
 
@@ -56,14 +55,11 @@ export class MyBranch implements OnInit {
   }
 
   public loadData() {
-
     let requestParam = new URLSearchParams();
+    requestParam.set('offset', this.pageNav.page + '');
+    requestParam.set('limit', this.pageNav.itemsPerPage + '');
 
-    requestParam.set('userId',this.curUserId+'');
-    requestParam.set('page', this.pageNav.page + '');
-    requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
-
-    this.branchService.pageQueryByUserId(requestParam)
+    this.deviceService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -81,13 +77,12 @@ export class MyBranch implements OnInit {
 
     requestParam.set('name',  values['name']);
     requestParam.set('address', values['address']);
-    requestParam.set('userId',this.curUserId+'');
 
-    requestParam.set('page', this.pageNav.page + '');
-    requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
+    requestParam.set('offset', this.pageNav.page + '');
+    requestParam.set('limit', this.pageNav.itemsPerPage + '');
     console.log(requestParam.toString());
 
-    this.branchService.pageQueryByUserId(requestParam)
+    this.deviceService.pageQuery(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -103,7 +98,7 @@ export class MyBranch implements OnInit {
 
     let requestParam = new URLSearchParams();
     requestParam.set('id', curId);
-    this.branchService.delete(requestParam)
+    this.deviceService.delete(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.loadData();
@@ -142,7 +137,25 @@ export class MyBranch implements OnInit {
 
 
   setPage(event){
+    let requestParam = new URLSearchParams();
 
+    requestParam.set('name', this.name.value);
+    requestParam.set('address', this.address.value);
+
+    requestParam.set('offset', event.offset + 1);
+    requestParam.set('limit', this.pageNav.itemsPerPage + '');
+    console.log(requestParam.toString());
+
+    this.deviceService.pageQuery(requestParam)
+      .subscribe(res => {
+        if (res.successed === '00') {
+          this.rows = res.data;
+          this.pageNav.totalElements = res.totalElements;
+          this.pageNav.totalPages = res.totalPages;
+        } else {
+          console.log(res.message);
+        }
+      });
   }
 
 }

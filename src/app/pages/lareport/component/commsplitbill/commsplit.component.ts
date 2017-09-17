@@ -12,14 +12,15 @@ import { NgbModal,NgbDateStruct,NgbDateParserFormatter} from '@ng-bootstrap/ng-b
 
 import { Keys } from '../../../../services/models/env';
 import {PageDataModel} from "../../../../services/models/page.model";
-import {BranchService} from "../../../../services/branch/branch.service";
+import {OrderreportService} from "../../../../services/report/orderreport.service";
+import {SplitbillreportService} from "../../../../services/report/splitbillreport.service";
 
 
 @Component({
-  selector: 'la-mybranch-query',
-  templateUrl:'./mybranch.html'
+  selector: 'la-commsplit-query',
+  templateUrl:'./commsplit.html'
 })
-export class MyBranch implements OnInit {
+export class CommsplitQuery implements OnInit {
 
   public rows:Array<any> = [];
 
@@ -29,24 +30,26 @@ export class MyBranch implements OnInit {
 
   public name:AbstractControl;
   public address:AbstractControl;
-  private curUserId:AbstractControl;
+
+  public curUserId = '';
 
 
   //public categoryList:Array<any>;
 
 
-  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private branchService:BranchService,private _dateParser:NgbDateParserFormatter) {
+  public constructor(fb:FormBuilder, private router:Router,private route:ActivatedRoute, private splitbillreportService:SplitbillreportService,private _dateParser:NgbDateParserFormatter) {
 
     this.searchForm = fb.group({
       'name': [''],
       'address': [''],
     });
 
+    this.curUserId = JSON.parse(localStorage.getItem(Keys.KEY_USER)).user_id;
 
 
     this.name = this.searchForm.controls['name'];
     this.address = this.searchForm.controls['address'];
-    this.curUserId = JSON.parse(localStorage.getItem(Keys.KEY_USER)).user_id;
+
 
   }
 
@@ -56,14 +59,14 @@ export class MyBranch implements OnInit {
   }
 
   public loadData() {
-
+    console.log("sdp123");
     let requestParam = new URLSearchParams();
 
     requestParam.set('userId',this.curUserId+'');
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
 
-    this.branchService.pageQueryByUserId(requestParam)
+    this.splitbillreportService.pageQueryByComm(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -79,15 +82,15 @@ export class MyBranch implements OnInit {
 
     let requestParam = new URLSearchParams();
 
+    requestParam.set('userId',this.curUserId+'');
     requestParam.set('name',  values['name']);
     requestParam.set('address', values['address']);
-    requestParam.set('userId',this.curUserId+'');
 
     requestParam.set('page', this.pageNav.page + '');
     requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
     console.log(requestParam.toString());
 
-    this.branchService.pageQueryByUserId(requestParam)
+    this.splitbillreportService.pageQueryByComm(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.rows = res.data;
@@ -103,7 +106,7 @@ export class MyBranch implements OnInit {
 
     let requestParam = new URLSearchParams();
     requestParam.set('id', curId);
-    this.branchService.delete(requestParam)
+    this.splitbillreportService.delete(requestParam)
       .subscribe(res => {
         if (res.successed === '00') {
           this.loadData();
@@ -136,13 +139,32 @@ export class MyBranch implements OnInit {
     }
   }
 
-  public toView(curId) {
-    this.router.navigate(['/pages/labranch/branchView'], {queryParams: {paramId: curId}});
+  public toView(commercialId,statisticsDate,splitBusiType) {
+    this.router.navigate(['/pages/lareport/commsplitdetail'], {queryParams: {commercialId: commercialId,statisticsDate: statisticsDate,type:splitBusiType}});
   }
 
 
   setPage(event){
+    let requestParam = new URLSearchParams();
+    requestParam.set('userId',this.curUserId+'');
 
+    requestParam.set('name', this.name.value);
+    requestParam.set('address', this.address.value);
+
+    requestParam.set('page', event.offset + 1);
+    requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
+    console.log(requestParam.toString());
+
+    this.splitbillreportService.pageQueryByComm(requestParam)
+      .subscribe(res => {
+        if (res.successed === '00') {
+          this.rows = res.data;
+          this.pageNav.totalElements = res.totalElements;
+          this.pageNav.totalPages = res.totalPages;
+        } else {
+          console.log(res.message);
+        }
+      });
   }
 
 }

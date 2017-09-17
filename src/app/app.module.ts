@@ -85,6 +85,7 @@ import {ChargeorderrepotService} from "./services/report/chargeorderrepot.servic
 import {OrderreportService} from "./services/report/orderreport.service";
 import {SplitbillreportService} from "./services/report/splitbillreport.service";
 import {SplitBranchQuery} from "./pages/lasplit/components/splitbranch.component";
+import {DeviceService} from "./services/device/device.service";
 // Application wide providers
 const APP_PROVIDERS = [
   AppState,
@@ -157,7 +158,8 @@ const APP_PROVIDERS = [
   ChargeorderrepotService,
   SplitBranchQuery,
   OrderreportService,
-  SplitbillreportService
+  SplitbillreportService,
+  DeviceService
 ];
 
 export type StoreType = {
