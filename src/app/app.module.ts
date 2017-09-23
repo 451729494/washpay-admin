@@ -18,6 +18,7 @@ import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 import {AuthService} from "./services/auth.service";
 import {AuthorityService} from "./services/check/authority.service";
+import {ModuleService} from "./services/check/module.service";
 import {CanActivateGuard} from "./services/guard.service";
 import {UserService} from "./services/user.service";
 import {UserPhotoService} from "./services/user/userPhoto.service";
@@ -57,6 +58,7 @@ const APP_PROVIDERS = [
   AppState,
   GlobalState,
   AuthService,
+  ModuleService,
   CanActivateGuard,
   UserService,
   AuthorityService,
