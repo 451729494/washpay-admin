@@ -18,38 +18,38 @@ export class SplitbillreportService {
   }
 
   public pageQuery(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/commercialOrderStatistics/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/commercialOrderStatistics/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
   public pageQueryByOrdin(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/commercialOrderStatistics/pageQueryByOrdin', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/commercialOrderStatistics/pageQueryByOrdin', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
   public pageQueryByComm(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/commercialOrderStatistics/pageQueryByComm', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/commercialOrderStatistics/pageQueryByComm', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   public pageQueryByCommercialId(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/commercialOrder/pageQueryByCommercialId', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/commercialOrder/pageQueryByCommercialId', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
 
 
   public find(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/commercialOrderStatistics/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/commercialOrderStatistics/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
 
   public save(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/commercialOrderStatistics/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
+    return this.http.post(Keys.SERVER_URL + '/secure/commercialOrderStatistics/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
   public delete(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/commercialOrderStatistics/delete',params, {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/secure/commercialOrderStatistics/delete',params, {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 

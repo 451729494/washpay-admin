@@ -18,28 +18,28 @@ export class CommercialService {
   }
 
   public pageQuery(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/commercial/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/commercial/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   public pageQueryNotBindBranchId(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/commercial/pageQueryNotBindBranchId', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/commercial/pageQueryNotBindBranchId', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   public find(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/commercial/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/commercial/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
 
   public save(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/commercial/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
+    return this.http.post(Keys.SERVER_URL + '/secure/commercial/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
   public delete(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/commercial/delete','',{'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/secure/commercial/delete','',{'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 

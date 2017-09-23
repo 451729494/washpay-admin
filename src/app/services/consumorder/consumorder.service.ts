@@ -18,23 +18,23 @@ export class ConsumorderService {
   }
 
   public pageQuery(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/consumOrder/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/consumOrder/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   public find(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/consumOrder/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/consumOrder/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
 
   public save(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/consumOrder/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
+    return this.http.post(Keys.SERVER_URL + '/secure/consumOrder/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
   public delete(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/consumOrder/delete', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/secure/consumOrder/delete', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 

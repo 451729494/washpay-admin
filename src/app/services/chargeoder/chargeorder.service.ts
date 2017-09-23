@@ -18,12 +18,12 @@ export class ChargeorderService {
   }
 
   public pageQuery(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/chargeOrder/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/chargeOrder/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   public pageQueryByDay(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/chargeOrder/pageQueryByDay', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/chargeOrder/pageQueryByDay', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
@@ -34,12 +34,12 @@ export class ChargeorderService {
 
 
   public save(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/chargeOrder/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
+    return this.http.post(Keys.SERVER_URL + '/secure/chargeOrder/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
   public delete(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/chargeOrder/delete', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/secure/chargeOrder/delete', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 

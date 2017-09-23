@@ -18,27 +18,27 @@ export class WithdrawService {
   }
 
   public pageQuery(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/elecWalletRecord/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/elecWalletRecord/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
   public pageQueryByDay(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/elecWalletRecord/pageQueryByDay', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/elecWalletRecord/pageQueryByDay', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   public find(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/elecWalletRecord/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/elecWalletRecord/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
 
   public save(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/elecWalletRecord/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
+    return this.http.post(Keys.SERVER_URL + '/secure/elecWalletRecord/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
   public delete(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/elecWalletRecord/delete',params, {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/secure/elecWalletRecord/delete',params, {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 

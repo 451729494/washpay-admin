@@ -18,23 +18,23 @@ export class DeviceService {
   }
 
   public pageQuery(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/device/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/device/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   public find(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/device/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/device/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
 
   public save(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/device/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
+    return this.http.post(Keys.SERVER_URL + '/secure/device/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
   public delete(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/device/delete', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/secure/device/delete', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 

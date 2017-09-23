@@ -18,38 +18,38 @@ export class SplitbillService {
   }
 
   public pageQuery(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/splitbill/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/splitbill/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   public find(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/splitbill/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/splitbill/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
 
   public save(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/splitbill/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
+    return this.http.post(Keys.SERVER_URL + '/secure/splitbill/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
   public delete(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/splitbill/delete', params,{'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/secure/splitbill/delete', params,{'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
   public addManager(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/splitbill/addManager', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/splitbill/addManager', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
   public addCommcial(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/splitbill/addComm', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/splitbill/addComm', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
   public updateRateById(params:any):Observable<any> {
 
     console.log(params+"params");
 
-    return this.http.get(Keys.SERVER_URL + '/splitbill/updateRateById'+'?'+params,{'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/splitbill/updateRateById'+'?'+params,{'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 

@@ -18,33 +18,33 @@ export class OrderreportService {
   }
 
   public pageQuery(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/orderReport/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/orderReport/pageQuery', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   public pageQueryByOrdinary(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/orderReport/pageQueryByOrdinary', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/orderReport/pageQueryByOrdinary', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
   public pageQueryByComm(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/orderReport/pageQueryByComm', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/orderReport/pageQueryByComm', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
 
   public find(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/orderReport/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/secure/orderReport/find', {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
 
   public save(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/orderReport/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
+    return this.http.post(Keys.SERVER_URL + '/secure/orderReport/save',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
   public delete(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/orderReport/delete',params, {'search': params, 'headers': this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/secure/orderReport/delete',params, {'search': params, 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 

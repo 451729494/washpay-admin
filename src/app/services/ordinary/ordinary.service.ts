@@ -18,32 +18,32 @@ export class OrdinaryService {
   }
 
   public pageQuery(params:any):Observable<any>{
-    return this.http.get(Keys.SERVER_URL+'/ordinaryAdmin/pageQuery',{'search': params,'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL+'/secure/ordinaryAdmin/pageQuery',{'search': params,'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
   public pageQueryNotBindBranchId(params:any):Observable<any>{
-    return this.http.get(Keys.SERVER_URL+'/ordinaryAdmin/pageQueryNotBindBranchId',{'search': params,'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL+'/secure/ordinaryAdmin/pageQueryNotBindBranchId',{'search': params,'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   public find(params:any):Observable<any>{
-    return this.http.get(Keys.SERVER_URL+'/ordinaryAdmin/find',{'search': params,'headers': this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL+'/secure/ordinaryAdmin/find',{'search': params,'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
 
   public save(params:any):Observable<any>{
-    return this.http.post(Keys.SERVER_URL+'/ordinaryAdmin/save',params, {'headers': this._authService.getHeadersAuthJSON()})
+    return this.http.post(Keys.SERVER_URL+'/secure/ordinaryAdmin/save',params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
   public delete(params:any):Observable<any>{
-    return this.http.post(Keys.SERVER_URL + '/ordinaryAdmin/delete', '',{'search': params,'headers': this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/secure/ordinaryAdmin/delete', '',{'search': params,'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   public addOrdinaryAdmin(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/ordinaryAdmin/addOrdinaryAdmin',  params, {'headers': this._authService.getHeadersAuthJSON()})
+    return this.http.post(Keys.SERVER_URL + '/secure/ordinaryAdmin/addOrdinaryAdmin',  params, {'headers': this._authService.getHeadersAuthJSON()})
       .map(res => res.json());
   }
 
