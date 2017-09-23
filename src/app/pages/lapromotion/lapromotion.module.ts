@@ -12,8 +12,6 @@ import {LaPromotion} from "./lapromotion.component";
 import {DiscountcouponQuery} from "./components/discountcoupon/discountcoupon.component";
 import {DiscountcouponAdd} from "./components/discountcoupon/discountcouponAdd.component";
 import {DiscountcouponView} from "./components/discountcoupon/discountcouponView.component";
-import {EntityListModule} from "../custom/entity-list-modal/entity-list.module";
-import {EntityListComponent} from "../custom/entity-list-modal/entity-list.component";
 
 
 
@@ -29,7 +27,6 @@ import {EntityListComponent} from "../custom/entity-list-modal/entity-list.compo
     NgUploaderModule,
     NgbDatepickerModule.forRoot(),
     NgxDatatableModule,
-    EntityListModule,
     routing
   ],
   declarations: [
@@ -38,7 +35,7 @@ import {EntityListComponent} from "../custom/entity-list-modal/entity-list.compo
     DiscountcouponQuery,
     DiscountcouponAdd,
     DiscountcouponView
-  ],entryComponents:[EntityListComponent],
+  ],entryComponents:[],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class DiscountCouponModule {

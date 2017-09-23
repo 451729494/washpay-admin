@@ -10,8 +10,6 @@ import {DefaultModal} from "./components/modal/default-modal.component";
 
 import { routing }       from './lasplit.routing';
 import {Lasplit} from "./lasplit.component";
-import {EntityListModule} from "../custom/entity-list-modal/entity-list.module";
-import {EntityListComponent} from "../custom/entity-list-modal/entity-list.component";
 
 import {SplitQuery} from "./components/split.component";
 import {SplitCommercialQuery} from "./components/splitComm.component";
@@ -31,7 +29,6 @@ import {SplitBranchQuery} from "./components/splitbranch.component";
     NgUploaderModule,
     NgbDatepickerModule.forRoot(),
     NgxDatatableModule,
-    EntityListModule,
     routing
   ],
   declarations: [
@@ -41,7 +38,7 @@ import {SplitBranchQuery} from "./components/splitbranch.component";
     SplitManagerQuery,
     SplitBranchQuery,
     DefaultModal
-  ],entryComponents:[EntityListComponent,DefaultModal],
+  ],entryComponents:[DefaultModal],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class SplitModule {

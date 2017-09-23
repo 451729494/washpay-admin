@@ -32,15 +32,9 @@ import {SysThirdListModule} from "./components/third/thirdList.module";
 
 import {CorpManageListComponent} from "./components/user/corpManageList.component";
 import {CorpManageListModule} from "./components/user/corpManageList.module";
-import {CorpMerchEdit} from "./components/merch/corpMerchEdit.component";
-import {CorpMerchQuery} from "./components/merch/corpMerch.component";
-import {CorpMerchView} from "./components/merch/corpMerchView";
 import {ManageVersion} from "./components/version/manageVersion.component";
 import {ManageVersionEdit} from "./components/version/manageVersionEdit.component";
-import {UserEvent} from "./components/event/userEvent.component";
 
-import {BusiTypeQuery} from "./components/busi/busiType.component";
-import {BusiTypeEdit} from "./components/busi/busiTypeEdit.component";
 
 import {EmployeeQuery} from "./components/employee/employee.component";
 import {EmployeeView} from "./components/employee/employeeView.component";
@@ -92,14 +86,8 @@ import {CustomQuery} from "./components/commonuser/commonuser.component";
     SysThirdQuery,
     SysThirdEdit,
     SysThirdView,
-    CorpMerchEdit,
-    CorpMerchQuery,
-    CorpMerchView,
-    UserEvent,
     ManageVersion,
     ManageVersionEdit,
-    BusiTypeQuery,
-    BusiTypeEdit,
     EmployeeQuery,
     EmployeeView,
     EmployeeEdit,

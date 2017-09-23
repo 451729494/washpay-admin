@@ -10,8 +10,6 @@ import {Response,Headers, Http,URLSearchParams,RequestOptionsArgs} from "@angula
 import { PageDataModel } from '../../../../services/models/page.model';
 import { UserPhotoService } from '../../../../services/user/userPhoto.service';
 import { Keys,Utils} from '../../../../services/models/env';
-import {CategoryService} from "../../../../services/blog/category.service";
-import {BlogService} from "../../../../services/blog/blog.service";
 
 import * as moment from 'moment';
 
@@ -20,7 +18,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {PhotoModalComponent} from "../../../custom/photo-modal/photo-modal.component";
 import {AuthService} from "../../../../services/auth.service";
 import {DiscountcouponService} from "../../../../services/discountcoupon/discountcoupon.service";
-import {EntityListComponent} from "../../../custom/entity-list-modal/entity-list.component";
 
 @Component({
   selector: 'la-discountcoupon-add',

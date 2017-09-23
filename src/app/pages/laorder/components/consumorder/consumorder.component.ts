@@ -115,9 +115,7 @@ export class ConsumorderQuery implements OnInit {
 
 
   public toView(curId) {
-    console.log(curId+"==============")
     this.router.navigate(['/pages/laorder/consumorderView'], {queryParams: {paramId: curId}});
-    console.log(curId+"--------------")
   }
 
 

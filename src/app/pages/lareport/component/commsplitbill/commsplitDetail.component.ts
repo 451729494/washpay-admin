@@ -81,6 +81,27 @@ export class CommsplitDetail implements OnInit{
     }
   }
 
+  setPage(event){
+    let requestParam = new URLSearchParams();
+    requestParam.set('commercialId',this.commercialId);
+    requestParam.set('statisticsDate',this.statisticsDate);
+    requestParam.set('type',this.splitBusiType);
+
+    requestParam.set('page', event.offset + 1);
+    requestParam.set('itemsPerPage', this.pageNav.itemsPerPage + '');
+    console.log(requestParam.toString());
+
+    this.splitbillreportService.pageQueryByCommercialId(requestParam)
+      .subscribe(res => {
+        if (res.successed === '00') {
+          this.rows = res.data;
+          this.pageNav.totalElements = res.totalElements;
+          this.pageNav.totalPages = res.totalPages;
+        } else {
+          console.log(res.message);
+        }
+      });
+  }
 
 
 

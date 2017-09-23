@@ -5,14 +5,14 @@
 
 export class PageDataModel {
   public page:number = 0;
-  public itemsPerPage:number = 40;
+  public itemsPerPage:number = 20;
   public maxSize:number = 5;
   public totalPages:number = 0;
   public totalElements:number = 0;
 
   public constructor(data: any = {}) {
     this.page = data.page || 0;
-    this.itemsPerPage = data.itemsPerPage || 40;
+    this.itemsPerPage = data.itemsPerPage || 20;
     this.maxSize = data.maxSize || 5;
     this.totalPages = data.totalPages || 0;
     this.totalElements = data.totalElements || 0;

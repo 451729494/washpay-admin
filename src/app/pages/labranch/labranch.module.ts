@@ -17,8 +17,6 @@ import {OrdinaryList} from "./components/branchrelatord/ordinaryList.component";
 import {BranchBindCom} from "./components/branchrelatcom/branchrelatcom.component";
 import {BindedCommercial} from "./components/branchrelatcom/bindedcommercial.component";
 import {UnBindedCommercial} from "./components/branchrelatcom/unbindedcommercial.component";
-import {EntityListModule} from "../custom/entity-list-modal/entity-list.module";
-import {EntityListComponent} from "../custom/entity-list-modal/entity-list.component";
 import {MyBranch} from "./components/mybranch/mybranch.component";
 import {CommBranch} from "./components/commbranch/commbranch.component";
 import {DevicerelatQuery} from "./components/devicerelat/devicerelat.component";
@@ -39,7 +37,6 @@ import {DeviceQuery} from "./components/device/device.component";
     NgUploaderModule,
     NgbDatepickerModule.forRoot(),
     NgxDatatableModule,
-    EntityListModule,
     routing
   ],
   declarations: [
@@ -60,7 +57,7 @@ import {DeviceQuery} from "./components/device/device.component";
     DevicerelatBranchList,
     DeviceQuery
 
-  ],entryComponents:[EntityListComponent],
+  ],entryComponents:[],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class BranchModule {

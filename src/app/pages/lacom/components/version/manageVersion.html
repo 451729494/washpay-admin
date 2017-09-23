@@ -43,7 +43,7 @@
         <ngx-datatable-column name="操作" [width]="300" [flexGrow]="1" prop="id">
           <ng-template let-value="value" ngx-datatable-cell-template>
             <button (click)="toEdit(value)" class="btn btn-warning">编辑</button>
-            <button (click)="toDelete(value)" class="btn btn-warning">删除</button>
+            <button (click)="toDelete(value)" class="btn btn-danger">删除</button>
           </ng-template>
         </ngx-datatable-column>
 

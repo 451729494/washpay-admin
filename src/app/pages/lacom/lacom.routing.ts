@@ -14,15 +14,8 @@ import {SysThirdQuery} from "./components/third/thirdQuery.component";
 import {SysThirdEdit} from "./components/third/thirdEdit.component";
 import {SysThirdView} from "./components/third/thirdView.component";
 
-import {CorpMerchEdit} from "./components/merch/corpMerchEdit.component";
-import {CorpMerchQuery} from "./components/merch/corpMerch.component";
-import {CorpMerchView} from "./components/merch/corpMerchView";
-import {UserEvent} from "./components/event/userEvent.component";
 import {ManageVersion} from "./components/version/manageVersion.component";
 import {ManageVersionEdit} from "./components/version/manageVersionEdit.component";
-
-import {BusiTypeQuery} from "./components/busi/busiType.component";
-import {BusiTypeEdit} from "./components/busi/busiTypeEdit.component";
 
 import {EmployeeQuery} from "./components/employee/employee.component";
 import {EmployeeView} from "./components/employee/employeeView.component";
@@ -60,14 +53,8 @@ const routes: Routes = [
       { path: 'third', component: SysThirdQuery },
       { path: 'thirdedit', component: SysThirdEdit },
       { path: 'thirdview', component: SysThirdView },
-      { path: 'corpmerch', component: CorpMerchQuery },
-      { path: 'corpmerchedit', component: CorpMerchEdit },
-      { path: 'corpmerchview', component: CorpMerchView },
-      { path: 'userevent', component: UserEvent },
       { path: 'manageversion', component: ManageVersion },
       { path: 'manageversionedit', component: ManageVersionEdit },
-      { path: 'busitype', component: BusiTypeQuery },
-      { path: 'busitypeedit', component: BusiTypeEdit },
       { path: 'employee', component: EmployeeQuery },
       { path: 'employeeview', component: EmployeeView },
       { path: 'employeeedit', component: EmployeeEdit },

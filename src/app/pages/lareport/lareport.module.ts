@@ -10,8 +10,6 @@ import { NgUploaderModule } from 'ngx-uploader';
 import {routing} from "./lareport.routing";
 
 import { LaReport }       from './lareport.component';
-import {EntityListModule} from "../custom/entity-list-modal/entity-list.module";
-import {EntityListComponent} from "../custom/entity-list-modal/entity-list.component";
 import {ChargeorderreportQuery} from "./component/chargeorder/chargeorderreport.component";
 import {ChargeorderrepotView} from "./component/chargeorder/chargeorderreportView.component";
 import {OrderreportQuery} from "./component/orderreport/orderreport.component";
@@ -40,7 +38,6 @@ import {OrdinarysplitbillreportView} from "./component/ordinarysplitbill/ordinar
     NgbDatepickerModule,
     NgxDatatableModule,
     NgxDatatableModule,
-    EntityListModule,
     routing
   ],
   declarations: [
@@ -59,7 +56,7 @@ import {OrdinarysplitbillreportView} from "./component/ordinarysplitbill/ordinar
     CommsplitDetail,
     OrdinarysplitbillreportQuery,
     OrdinarysplitbillreportView
-  ],entryComponents:[EntityListComponent],
+  ],entryComponents:[],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class ReportModule {

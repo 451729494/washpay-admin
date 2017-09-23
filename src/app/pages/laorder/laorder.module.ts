@@ -13,8 +13,6 @@ import {ConsumorderQuery} from "./components/consumorder/consumorder.component";
 import {ChargeorderQuery} from "./components/chargeorder/chargeorder.compenent";
 import {ConsumorderEdit} from "./components/consumorder/consumorderEdit.component";
 import {ConsumorderView} from "./components/consumorder/consumorderView.component";
-import {EntityListModule} from "../custom/entity-list-modal/entity-list.module";
-import {EntityListComponent} from "../custom/entity-list-modal/entity-list.component";
 
 
 
@@ -30,7 +28,6 @@ import {EntityListComponent} from "../custom/entity-list-modal/entity-list.compo
     NgUploaderModule,
     NgbDatepickerModule.forRoot(),
     NgxDatatableModule,
-    EntityListModule,
     routing
   ],
   declarations: [
@@ -39,7 +36,7 @@ import {EntityListComponent} from "../custom/entity-list-modal/entity-list.compo
     ConsumorderQuery,
     ConsumorderView,
     ChargeorderQuery
-  ],entryComponents:[EntityListComponent],
+  ],entryComponents:[],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class LaOrderModule {
