@@ -63,14 +63,29 @@
           [width]="200"
           prop="address">
         </ngx-datatable-column>
-
-
-
-        <ngx-datatable-column name="操作" [width]="200" [flexGrow]="1" [flexGrow]="1" prop="id">
-          <ng-template let-value="value" ngx-datatable-cell-template>
-            <button (click)="toView(value)" class="btn btn-success">详情</button>
-          </ng-template>
+        <ngx-datatable-column
+          name="经度"
+          [width]="200"
+          prop="longitude">
         </ngx-datatable-column>
+        <ngx-datatable-column
+          name="纬度"
+          [width]="200"
+          prop="dimensionality">
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="创建时间"
+          [width]="200"
+          prop="createdDate">
+        </ngx-datatable-column>
+
+
+
+        <!--<ngx-datatable-column name="操作" [width]="200" [flexGrow]="1" [flexGrow]="1" prop="id">-->
+          <!--<ng-template let-value="value" ngx-datatable-cell-template>-->
+            <!--<button (click)="toView(value)" class="btn btn-success">详情</button>-->
+          <!--</ng-template>-->
+        <!--</ngx-datatable-column>-->
 
       </ngx-datatable>
 
