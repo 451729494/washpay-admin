@@ -162,7 +162,7 @@ export class UnBindedCommercial implements OnInit {
   }
 
   public toBack(){
-    this.router.navigate(['/pages/lacomm/bindedcommercial'],{queryParams: {paramId: this.branchId}});
+    this.router.navigate(['/pages/labranch/branchrelatcom'],{queryParams: {paramId: this.branchId}});
   }
 
   setPage(event){
