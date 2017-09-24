@@ -51,13 +51,13 @@ export class Login {
           //
           localStorage.setItem('page_menus',JSON.stringify(busiAdminBean.busiMenu.pagesMenu));
 
-          if(busiAdminBean.busiMenu.corpId === null || busiAdminBean.busiMenu.corpId === 'null' ||  busiAdminBean.busiMenu.corpId === ''){
-            localStorage.setItem('cur_corp_id','');
-            this.router.navigate([ '/pages/dashadmin']);
-          }else{
-            localStorage.setItem('cur_corp_id',busiAdminBean.busiMenu.corpId);
-            this.router.navigate([ '/pages/dashmerch']);
-          }
+          this.router.navigate([ '/pages/laorder/consumorder']);
+          // if(busiAdminBean.busiMenu.corpId === null || busiAdminBean.busiMenu.corpId === 'null' ||  busiAdminBean.busiMenu.corpId === ''){
+          //   localStorage.setItem('cur_corp_id','');
+          // }else{
+          //   localStorage.setItem('cur_corp_id',busiAdminBean.busiMenu.corpId);
+          //   this.router.navigate([ '/pages/dashmerch']);
+          // }
 
 
           // return true to indicate successful login

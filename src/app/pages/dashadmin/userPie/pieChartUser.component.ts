@@ -18,14 +18,14 @@ export class PieChartUser {
 
   public charts=[{
     color: this._baConfig.get().colors.custom.dashboardPieChart,
-    description: '用户数',
+    description: '昨日订单量',
     stats: '11',
-    icon: 'person',
+    icon: 'refresh',
   }, {
     color: this._baConfig.get().colors.custom.dashboardPieChart,
-    description: '在职人数',
+    description: '昨日收益',
     stats: '9',
-    icon: 'face',
+    icon: 'money',
   }];
 
   private _init = false;

@@ -48,9 +48,16 @@ export class Reset {
     if (this.form.valid) {
       // your code goes here
       console.log(values);
-      let params = 'email='+values['email']+'&veryCode='+values['veryCode']+'&password='+values['passwords']['password'];
+      // let params = 'username='+values['email']+'&veryCode='+values['veryCode']+'&password='+values['passwords']['password'];
 
-      this.userService.resetPassword(params).subscribe(res =>{
+      let requestParam = new URLSearchParams();
+
+      requestParam.set('username', this.email.value);
+      requestParam.set('veryCode', this.veryCode.value);
+      requestParam.set('password', this.repeatPassword.value);
+
+
+      this.userService.resetPassword(requestParam).subscribe(res =>{
         if(res.successed === '00'){
 
           this.authService.logout();

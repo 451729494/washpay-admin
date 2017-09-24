@@ -35,33 +35,33 @@ export class UserService {
   }
 
   checkUser(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/secure/user/checkUsernameOrEmail',params,{ 'headers': this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/open/user/checkUsernameOrEmail',params,{ 'headers': this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   sendEmailVeryCode(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/secure/user/sendEmailVeryCode', params,{ 'headers':this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/open/user/getEmailVeryCode', params,{ 'headers':this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   checkVerifyLogin(params:any):Observable<any> {
-    return this.http.get(Keys.SERVER_URL + '/secure/user/checkVerifyLogin', {'search': params,'headers':this._authService.getHeadersAuth()})
+    return this.http.get(Keys.SERVER_URL + '/open/user/checkVerifyLogin', {'search': params,'headers':this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   resetPassword(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/secure/user/resetPassword',  params,{ headers: Keys.HEADERS_UN_FORM})
+    return this.http.get(Keys.SERVER_URL + '/open/user/resetPassword'+'?'+params,{'search': params,'headers':Keys.HEADERS})
       .map(res => res.json());
   }
 
 
   changePassword(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/secure/user/changePassword',  params, { headers: this._authService.getHeadersAuth()})
+    return this.http.post(Keys.SERVER_URL + '/open/user/changePassword',  params, { headers: this._authService.getHeadersAuth()})
       .map(res => res.json());
   }
 
   register(params:any):Observable<any> {
-    return this.http.post(Keys.SERVER_URL + '/secure/user/register', params,{ headers: Keys.HEADERS})
+    return this.http.post(Keys.SERVER_URL + '/open/user/register', params,{ headers: Keys.HEADERS})
       .map(res => res.json());
   }
 
